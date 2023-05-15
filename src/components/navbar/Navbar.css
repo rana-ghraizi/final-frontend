@@ -1,0 +1,49 @@
+.navbar-wrapper{
+    background-color: #FBECE4;
+    height: 120px;
+}
+.navbar-content{
+    padding-top: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-logo {
+    width: 120px;
+    margin-left: 100px;
+  }
+.navbar-icons{
+    width: 200px;
+    margin-right: 100px;
+}
+.navnavbar-button {
+    background-color: transparent;
+    border: none;
+    padding: 0px 24px;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.navnavbar-button a {
+    text-decoration: none;
+    color: black;
+    line-height: 32px;
+    font-weight: 300;
+}
+.navnavbar-cart{
+
+    background-color: transparent;
+    border: none;
+    padding: 0px 24px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+.navnavbar-cart a {
+    color: black;
+}
