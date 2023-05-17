@@ -6,6 +6,7 @@ import Paintings from './Pages/Paintings/Paintings';
 import Login from './Pages/Login/Login';
 import Cart from './Pages/Cart/Cart';
 import Profile from './Pages/Profile/Profile';
+import Register from './Pages/Register/Register';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/paintings" element={<Paintings />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>

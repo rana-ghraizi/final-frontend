@@ -22,7 +22,7 @@ const Footer = () => {
           <Link className="about-footer-li" to={"/paintings"}>
             Paintings
           </Link>
-          <Link className="about-footer-li" to={"/login"}>
+          <Link className="about-footer-li" to={"/register"}>
             Get Started
           </Link>
         </div>
