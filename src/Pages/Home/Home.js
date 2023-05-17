@@ -12,10 +12,11 @@ import pic9 from "../../Images/image_1428.jpeg";
 import pic8 from "../../Images/Painting-Mantra-Oil-Colors-Canvas-SDL554796877-1-dd3b5 1.png";
 import pic7 from "../../Images/image3.jpg";
 import { Link } from "react-router-dom";
+import Footer from "../../components/footer/Footer";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <div className="home1-wrapper">
         <div>
@@ -69,7 +70,8 @@ const Home = () => {
           <img src={pic9} alt="image3" className="home4-pic1" />
         </div>
       </div>
-    </div>
+      <Footer/>
+    </>
   );
 };
 
