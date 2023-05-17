@@ -1,0 +1,122 @@
+.home1-wrapper {
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13%;
+}
+.home-title {
+  font-size: 80px;
+  font-weight: 400;
+}
+.home2-title {
+  font-size: 60px;
+  font-weight: 400;
+  width: 50%;
+  margin-left: 3%;
+}
+.home-slogan {
+  font-size: 30px;
+}
+.home-group1 {
+  width: 45%;
+  height: 50vh;
+}
+.home-group1-img {
+  width: 100%;
+}
+.home-pic1 {
+  border-radius: 20px;
+  width: 60%;
+}
+.home-group2 {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fbfbfb;
+  padding: 2%;
+  border-radius: 20px;
+  width: 91%;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+.home-group2-p {
+  font-size: 30px;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+.home2-line{
+  margin-left: auto;
+  margin-right: auto;
+}
+.home2-wrapper {
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.home2-button {
+  padding: 10px;
+  background-color: #689dff;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.home2-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.home2-pic2 {
+  margin-left: 60%;
+  margin-top: -3%;
+}
+.home3-wrapper{
+  overflow: auto;
+  margin-top: 150px;
+  content: "";
+  background-image: url('../../Images/Group\ 8.png'); 
+  height: 50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.home3-content {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 10%;
+}
+.home4-wrapper {
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.home4-content {
+  display: grid;
+  grid-template-columns: 680px 680px;
+  grid-template-rows: 680px;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10%;
+}
+.home4-content2{
+  display: grid;
+  grid-template-columns: 340px 340px;
+  grid-template-rows: 340px;
+  gap: 5px;
+}
+.home4-pic1 {
+  width: 670px;
+  height: 670px;
+  border-radius: 20px;
+}
+.home4-pic2 {
+  width: 330px;
+  height: 330px;
+  border-radius: 20px;
+}

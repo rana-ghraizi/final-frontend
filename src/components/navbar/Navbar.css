@@ -13,7 +13,7 @@
     margin-left: 100px;
   }
 .navbar-icons{
-    width: 200px;
+    width: 140px;
     margin-right: 100px;
 }
 .navnavbar-button {
@@ -26,7 +26,6 @@
     font-family: sans-serif;
     cursor: pointer;
 }
-
 .navnavbar-button a {
     text-decoration: none;
     color: black;
