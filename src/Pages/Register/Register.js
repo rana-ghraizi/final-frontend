@@ -63,7 +63,13 @@ const Login = () => {
     <div className="login-wrapper">
       <div className="login-wrapper-container">
         <div className="login-content">
-          <h1 className="login-content-h1">Hello!</h1>
+          <h1 className="login-content-h1">
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Yellowtail"
+            />
+            Hello!
+          </h1>
           <p className="login-content-p">
             Do have an account, login{" "}
             <a href="/login" className="login-a">

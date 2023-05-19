@@ -38,9 +38,18 @@ const Login = () => {
     <div className="login-wrapper">
       <div className="login-wrapper-container">
         <div className="login-content">
-          <h1 className="login-content-h1">Welcome Back!</h1>
+          <h1 className="login-content-h1">
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Yellowtail"
+            />
+            Welcome Back!
+          </h1>
           <p className="login-content-p">
-            Don't have an account, sign up <a href="/register" className="login-a">here!</a>
+            Don't have an account, sign up{" "}
+            <a href="/register" className="login-a">
+              here!
+            </a>
           </p>
           <form className="login-form" onSubmit={handleLogin}>
             <div className="username">

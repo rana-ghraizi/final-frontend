@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/navbar/Navbar";
 import image1 from "../../Images/Group_1.png";
 import "./Home.css";
 import pic1 from "../../Images/image7 1.png";
@@ -7,9 +6,11 @@ import pic2 from "../../Images/heart outline.png";
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 import NestedGridComponent from "../../components/NestedGridComponent";
+import { Navbar, MenuBar } from "../../components/navbar/Navbar";
 
 const Home = () => {
   const [paintings, setPaintings] = useState([]);
+  const [menubar, setMenuBar] = useState(false);
 
   useEffect(() => {
     const fetchPaintings = async () => {
@@ -29,7 +30,8 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar setMenuBar={setMenuBar} menubar={menubar} />
+      <MenuBar menubar={menubar} />{" "}
       <div className="home1-wrapper">
         <div>
           <h1 className="home-title">

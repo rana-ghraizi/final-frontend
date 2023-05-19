@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/navbar/Navbar";
+import {Navbar, MenuBar} from "../../components/navbar/Navbar";
 import "./Paintings.css";
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import Select from "react-select";
-
 
 const Paintings = () => {
   const [paintings, setPaintings] = useState([]);
   const [title, setTitle] = useState([]);
   const [categoryId, setCategoryId] = useState(null);
+  const [menubar, setMenuBar] = useState(false);
+
 
   // fetch paintings
   useEffect(() => {
@@ -20,7 +18,6 @@ const Paintings = () => {
         const response = await fetch("http://localhost:5000/painting");
         const data = await response.json();
         setPaintings(data);
-        // console.log(data);
       } catch (err) {
         console.log(err.message);
       }
@@ -44,8 +41,13 @@ const Paintings = () => {
     fetchTitle();
   }, []);
 
-  const handleCategoryClick = (categoryId) => {
-    setCategoryId(categoryId);
+  const handleCategoryClick = (selectedOption) => {
+    if (selectedOption) {
+      const categoryId = selectedOption.value;
+      setCategoryId(categoryId);
+    } else {
+      setCategoryId(null);
+    }
   };
 
   const options = title.map((item) => ({
@@ -55,7 +57,7 @@ const Paintings = () => {
 
   // fetch paintings by categories
   useEffect(() => {
-    const fetchProductsByCategory = async (categoryId) => {
+    const fetchProductsByCategory = async () => {
       try {
         const response = await fetch(
           `http://localhost:5000/painting/category/${categoryId}`
@@ -75,7 +77,6 @@ const Paintings = () => {
           const response = await fetch("http://localhost:5000/painting");
           const data = await response.json();
           setPaintings(data);
-          // console.log(data);
         } catch (err) {
           console.log(err.message);
         }
@@ -86,20 +87,8 @@ const Paintings = () => {
 
   return (
     <div>
-      <Navbar />
-      {/* <Slider {...settings} className="Slider">
-        {title &&
-          title.map((item) => (
-            <div key={item._id}>
-              <button
-                className="title-carousel"
-                onClick={() => handleCategoryClick(item._id)}
-              >
-                {item.title}
-              </button>
-            </div>
-          ))}
-      </Slider> */}
+      <Navbar setMenuBar={setMenuBar} menubar={menubar}/>
+      <MenuBar menubar={menubar} />
       <div className="dropdown-menu">
         <Select
           className="dropdown-select"
@@ -110,7 +99,6 @@ const Paintings = () => {
         />
       </div>
       <div className="paintings-content">
-        {/* {console.log(paintings)} */}
         {paintings.map((item) => (
           <div key={item._id} className="painting-container">
             <img src={item.image.url} alt={item.title} className="painting" />

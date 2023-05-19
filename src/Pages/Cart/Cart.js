@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState } from "react";
+import { Navbar, MenuBar } from "../../components/navbar/Navbar";
 
 const Cart = () => {
-  return (
-    <div>Cart</div>
-  )
-}
+  const [menubar, setMenuBar] = useState(false);
 
-export default Cart
+  return (
+    <>
+      <Navbar setMenuBar={setMenuBar} menubar={menubar} />
+      <MenuBar menubar={menubar} />
+    </>
+  );
+};
+
+export default Cart;
