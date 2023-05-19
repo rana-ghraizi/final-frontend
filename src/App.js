@@ -7,6 +7,7 @@ import Login from './Pages/Login/Login';
 import Cart from './Pages/Cart/Cart';
 import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
+import Painting from './Pages/Painting/Painting';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/paintings" element={<Paintings />} />
+          <Route path="/paintings/:paintingId" element={<Painting />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />

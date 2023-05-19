@@ -21,7 +21,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
-  const [role, setRole] = useState("Artist");
+  const [role, setRole] = useState("");
   const [error, setError] = useState(null);
 
   const handleRegister = async (event) => {
@@ -130,14 +130,17 @@ const Login = () => {
                 </div>
                 <div className="username">
                   <label className="about-username">Role:</label>
-                  <input
+                  <select
                     className="username-input"
-                    type="text"
                     id="role"
                     name="role"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-                  />
+                  >
+                    <option value="">Select Role</option>
+                    <option value="user">User</option>
+                    <option value="admin">Artist</option>
+                  </select>
                 </div>
                 {error && <p className="error-message"> {error}</p>}
                 <button
@@ -147,11 +150,10 @@ const Login = () => {
                 >
                   Previous
                 </button>
-                
+
                 <button className="register-button" type="submit">
                   Register
                 </button>
-                
               </div>
             )}
           </form>
