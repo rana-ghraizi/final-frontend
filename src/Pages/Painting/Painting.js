@@ -55,8 +55,21 @@ const Painting = () => {
         });
       } catch (error) {
         console.error(error);
-      }
-    } else {
+      } 
+    } else if ( role === 'Artist') {
+      const result = await 
+      Swal.fire({
+        title: "You should to be a user to add items to your cart",
+        showCancelButton: true,
+        confirmButtonText: "Log in",
+        customClass: {
+          popup: "custom-style",
+          title: "custom-style",
+          confirmButton: "custom-style",
+        },
+      });
+    }
+    else {
       const result = await 
       Swal.fire({
         title: "You need to be logged in to add items to your cart",

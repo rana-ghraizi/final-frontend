@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import {Navbar, MenuBar} from "../../components/navbar/Navbar";
+import { Navbar, MenuBar } from "../../components/navbar/Navbar";
 import "./Paintings.css";
 import { Link } from "react-router-dom";
 import Select from "react-select";
-
+import Line from "../../Images/image 22.png";
 const Paintings = () => {
   const [paintings, setPaintings] = useState([]);
   const [title, setTitle] = useState([]);
   const [categoryId, setCategoryId] = useState(null);
   const [menubar, setMenuBar] = useState(false);
-
 
   // fetch paintings
   useEffect(() => {
@@ -87,8 +86,12 @@ const Paintings = () => {
 
   return (
     <div>
-      <Navbar setMenuBar={setMenuBar} menubar={menubar}/>
+      <Navbar setMenuBar={setMenuBar} menubar={menubar} />
       <MenuBar menubar={menubar} />
+      {/* <div className="page-header">
+        <p className="page-title">Artistic Paintings</p>
+        <img src={Line} className="line" />
+      </div> */}
       <div className="dropdown-menu">
         <Select
           className="dropdown-select"

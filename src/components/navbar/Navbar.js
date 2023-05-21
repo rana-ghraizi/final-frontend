@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../../Images/Logo 2.png";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
@@ -74,6 +74,12 @@ const MenuBar = ({ menubar }) => {
       </button>
       <button className="navmenu-menu">
         <Link to="/register">Get Started</Link>
+      </button>
+      <button className="navmenu-menu">
+        <Link to="/cart">Cart</Link>
+      </button>
+      <button className="navmenu-menu">
+        <Link to="/profile">Profile</Link>
       </button>
     </div>
   );

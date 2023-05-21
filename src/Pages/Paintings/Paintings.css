@@ -3,6 +3,19 @@
   justify-content: center;
   align-items: center;
 }
+.page-title {
+  text-align: center;
+  font-size: 50px;
+}
+.page-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.line {
+  width: 50%;
+}
 /* .paintings-content {
   width: 90%;
   margin-top: 10%;

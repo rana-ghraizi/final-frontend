@@ -8,6 +8,8 @@ import Cart from './Pages/Cart/Cart';
 import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
 import Painting from './Pages/Painting/Painting';
+import Modifypainting from './Pages/Modify painting/Modifypainting';
+import Addpainting from './Pages/Modify painting/Addpainting';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/paintings" element={<Paintings />} />
           <Route path="/paintings/:paintingId" element={<Painting />} />
+          <Route path="/painting/:paintingId" element={<Modifypainting />} />
+          <Route path="/addPainting" element={<Addpainting />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
