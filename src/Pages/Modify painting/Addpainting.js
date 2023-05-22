@@ -4,23 +4,24 @@ import Swal from "sweetalert2";
 
 const Addpainting = () => {
   const userId = sessionStorage.getItem("Id");
-  const [selectedImage, setSelectedImage] = useState({});
+  const [selectedImage, setSelectedImage] = useState("");
   const [categories, setCategories] = useState([]);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [categoryId, setCategoryId] = useState("");
-  const [price, setPrice] = useState("");
-  const [size, setSize] = useState("");
-  const [painting, setPainting] = useState([]);
+  const [painting, setPainting] = useState({
+    title: "",
+    description: "",
+    categoryId: null,
+    price: "",
+    size: "",
+  });
 
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setPainting({ ...painting, [name]: value });
-  // };
-  // const handleImageChange = (event) => {
-  //   console.log(event.target.files);
-  //   setSelectedImage([...event.target.files]);
-  // };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setPainting({ ...painting, [name]: value });
+  };
+  const handleImageChange = (event) => {
+    console.log(event.target.files);
+    setSelectedImage(event.target.files[0]);
+  };
 
   // fetch categories
   useEffect(() => {
@@ -43,15 +44,16 @@ const Addpainting = () => {
 
     try {
       const formData = new FormData();
-      for (const image of selectedImage) {
-        formData.append("image", image);
-      }
+      // for (const image of selectedImage) {
+      //   formData.append("image", );
+      // }
       console.log("sddad");
-      formData.append("title", title);
-      formData.append("description", description);
-      formData.append("categoryId", categoryId);
-      formData.append("price", price);
-      formData.append("size", size);
+      formData.append("title", painting.title);
+      formData.append("description", painting.description);
+      formData.append("categoryId", painting.categoryId);
+      formData.append("price", painting.price);
+      formData.append("size", painting.size);
+      formData.append("image", selectedImage)
 
       const response = await axios.post(
         `http://localhost:5000/painting/${userId}`,
@@ -95,8 +97,8 @@ const Addpainting = () => {
             id="username"
             placeholder="Painting title"
             name="title"
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
+            value={painting.title}
+            onChange={handleInputChange}
           />
         </div>
         <div className="username">
@@ -107,8 +109,8 @@ const Addpainting = () => {
             id="username"
             placeholder="discription"
             name="description"
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
+            value={painting.description}
+            onChange={handleInputChange}
           />
         </div>
         <div className="username">
@@ -118,7 +120,7 @@ const Addpainting = () => {
             id="username"
             type="file"
             name="image"
-            onChange={(event) => setSelectedImage(event.target.value)}
+            onChange={handleImageChange}
           />
         </div>
         <div className="username">
@@ -126,12 +128,12 @@ const Addpainting = () => {
           <select
             id="category"
             name="categoryId"
-            value={categoryId}
-            onChange={(event) => setCategoryId(event.target.value)}
+            value={painting.categoryId}
+            onChange={handleInputChange}
           >
             <option value="">Select a category...</option>
             {categories.map((category) => (
-              <option key={category._id} value={category.title}>
+              <option key={category._id} value={category._id}>
                 {category.title}
               </option>
             ))}
@@ -145,8 +147,8 @@ const Addpainting = () => {
             id="username"
             placeholder="Price"
             name="price"
-            value={price}
-            onChange={(event) => setPrice(event.target.value)}
+            value={painting.price}
+            onChange={handleInputChange}
           />
         </div>
         <div className="username">
@@ -157,8 +159,8 @@ const Addpainting = () => {
             id="username"
             placeholder="Size"
             name="size"
-            value={size}
-            onChange={(event) => setSize(event.target.value)}
+            value={painting.size}
+            onChange={handleInputChange}
           />
         </div>
         <button className="product-edit-button" type="submit">

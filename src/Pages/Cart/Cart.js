@@ -161,7 +161,7 @@ const Cart = () => {
             <h1 className="cart-title-b">Please log in to access your cart.</h1>
           </div>
           <div className="cart-login">
-            <Link to="/auth" className="cart-login-link">
+            <Link to="/login" className="cart-login-link">
               Login
             </Link>
           </div>

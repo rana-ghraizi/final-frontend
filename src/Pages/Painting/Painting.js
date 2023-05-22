@@ -33,7 +33,7 @@ const Painting = () => {
   const handleCart = async (event, paintingId) => {
     event.preventDefault();
     console.log(paintingId);
-    if (userId && role === 'user') {
+    if (userId) {
       try {
         const response = await axios.post(
           `http://localhost:5000/cart/${userId}`,
@@ -56,19 +56,20 @@ const Painting = () => {
       } catch (error) {
         console.error(error);
       } 
-    } else if ( role === 'Artist') {
-      const result = await 
-      Swal.fire({
-        title: "You should to be a user to add items to your cart",
-        showCancelButton: true,
-        confirmButtonText: "Log in",
-        customClass: {
-          popup: "custom-style",
-          title: "custom-style",
-          confirmButton: "custom-style",
-        },
-      });
-    }
+    } 
+    // else if ( role === 'Artist') {
+    //   const result = await 
+    //   Swal.fire({
+    //     title: "You should to be a user to add items to your cart",
+    //     showCancelButton: true,
+    //     confirmButtonText: "Log in",
+    //     customClass: {
+    //       popup: "custom-style",
+    //       title: "custom-style",
+    //       confirmButton: "custom-style",
+    //     },
+    //   });
+    // }
     else {
       const result = await 
       Swal.fire({

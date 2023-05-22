@@ -11,6 +11,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import Footer from "../../components/footer/Footer";
 
 const Profile = () => {
   const [menubar, setMenuBar] = useState(false);
@@ -125,128 +126,170 @@ const Profile = () => {
     <div>
       <Navbar setMenuBar={setMenuBar} menubar={menubar} />
       <MenuBar menubar={menubar} />
-      {/* user form */}
 
-      <h1>My Info</h1>
-      <button onClick={handleLogout}>Logout</button>
-      <form onSubmit={updateUser}>
-        <div className="user-form">
-          <div className="user-username">
-            <p>
-              Username: <br />
-              <br />
-              {user.username}
-            </p>
+      {!userId ? (
+        <div className="cart-wrapper-div1">
+          <div className="cart-header">
+            <h1 className="cart-title-b">
+              Please log in to access your profile.
+            </h1>
           </div>
-          <div className="update-label">
-            <div className="address-label">
-              <label className="update-Address">
-                Address:
-                <br />
-                <input
-                  className="user-inputs"
-                  type="text"
-                  value={address}
-                  placeholder="New Address"
-                  onChange={(event) => setAddress(event.target.value)}
-                />
-              </label>
-            </div>
-            <div className="phonenumber-label">
-              <label className="update-phonenumber">
-                Phonenumber:
-                <br />
-                <input
-                  className="user-inputs"
-                  type="text"
-                  value={phoneNumber}
-                  placeholder="phonenumber"
-                  onChange={(event) => setPhoneNumber(event.target.value)}
-                />
-              </label>
-            </div>
-            <div className="user-username">
-              <p>
-                Role: <br />
-                <br />
-                {user.role}
-              </p>
-            </div>
+          <div className="cart-login">
+            <Link to="/login" className="cart-login-link">
+              Login
+            </Link>
           </div>
-          <button className="submit-button" type="submit">
-            Update
-          </button>
         </div>
-      </form>
-      <h1>My Paintings</h1>
-      <Link className="view-button" to={'/addPainting'}>
-        Add painting
-      </Link>
-      <div className="paintings-content">
-        {paintings.length > 0 ? (
-          paintings.map((item) => (
-            <div key={item._id} className="painting-container">
-              <img src={item.image.url} alt={item.title} className="painting" />
-              <div className="overlay">
-                <Link className="view-button" to={`/painting/${item._id}`}>
-                  Modify painting
-                </Link>
+      ) : (
+        <div>
+          {/* user form */}
+          <div>
+            <h1>My Info</h1>
+            <button onClick={handleLogout}>Logout</button>
+            <form onSubmit={updateUser}>
+              <div className="user-form">
+                <div className="user-username">
+                  <p>
+                    Username: <br />
+                    <br />
+                    {user.username}
+                  </p>
+                </div>
+                <div className="update-label">
+                  <div className="address-label">
+                    <label className="update-Address">
+                      Address:
+                      <br />
+                      <input
+                        className="user-inputs"
+                        type="text"
+                        value={address}
+                        placeholder="New Address"
+                        onChange={(event) => setAddress(event.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <div className="phonenumber-label">
+                    <label className="update-phonenumber">
+                      Phonenumber:
+                      <br />
+                      <input
+                        className="user-inputs"
+                        type="text"
+                        value={phoneNumber}
+                        placeholder="phonenumber"
+                        onChange={(event) => setPhoneNumber(event.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <div className="user-username">
+                    <p>
+                      Role: <br />
+                      <br />
+                      {user.role}
+                    </p>
+                  </div>
+                </div>
+                <button className="submit-button" type="submit">
+                  Update
+                </button>
               </div>
-            </div>
-          ))
-        ) : (
-          <p>No paintings found.</p>
-        )}
-      </div>
+            </form>
+          </div>
+          {user.role === "user" ? null : (
+            <>
+              {/* my paintings */}
 
-      <h1>Orders</h1>
-      <div className="cart-table">
-        <Paper
-          sx={{
-            width: "70%",
-            overflow: "hidden",
-            marginLeft: "auto",
-            marginRight: "auto",
-            border: "#0B486A solid 1px",
-          }}
-        >
-          <TableContainer sx={{ maxHeight: 440 }}>
-            <Table stickyHeader aria-label="sticky table">
-              <TableHead>
-                <TableRow>
-                  {columns.map((column) => (
-                    <TableCell
-                      key={column.id}
-                      align={column.align}
-                      style={{ minWidth: column.minWidth }}
-                    >
-                      {column.label}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {tableData?.map((item) => (
-                  <TableRow key={item._id}>
-                    <TableCell>{item.user.username}</TableCell>
-                    <TableCell>{item.user.phonenumber}</TableCell>
-                    <TableCell>{item.user.address}</TableCell>
-                    {item.orderedPaintings.map((painting) => (
-                      <TableCell key={painting._id} className="cart-item-image">
+              <div>
+                <h1>My Paintings</h1>
+                <Link className="view-button" to={"/addPainting"}>
+                  Add painting
+                </Link>
+                <div className="paintings-content">
+                  {paintings.length > 0 ? (
+                    paintings.map((item) => (
+                      <div key={item._id} className="painting-container">
                         <img
-                          src={painting.paintingId.image.url}
-                          alt={painting.paintingId.title}
+                          src={item.image.url}
+                          alt={item.title}
+                          className="painting"
                         />
-                      </TableCell>
-                    ))}
-                    <TableCell>$ {item.total_price}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Paper>
-      </div>
+                        <div className="overlay">
+                          <Link
+                            className="view-button"
+                            to={`/painting/${item._id}`}
+                          >
+                            Modify painting
+                          </Link>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No paintings found.</p>
+                  )}
+                </div>
+              </div>
+
+              {/* orders */}
+              <div>
+                <h1>Orders</h1>
+                <div className="cart-table">
+                  <Paper
+                    sx={{
+                      width: "70%",
+                      overflow: "hidden",
+                      marginLeft: "auto",
+                      marginRight: "auto",
+                      border: "#0B486A solid 1px",
+                    }}
+                  >
+                    <TableContainer sx={{ maxHeight: 440 }}>
+                      <Table stickyHeader aria-label="sticky table">
+                        <TableHead>
+                          <TableRow>
+                            {columns.map((column) => (
+                              <TableCell
+                                key={column.id}
+                                align={column.align}
+                                style={{ minWidth: column.minWidth }}
+                              >
+                                {column.label}
+                              </TableCell>
+                            ))}
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {Array.isArray(tableData) &&
+                            tableData.map((item) => (
+                              <TableRow key={item._id}>
+                                <TableCell>{item.user.username}</TableCell>
+                                <TableCell>{item.user.phonenumber}</TableCell>
+                                <TableCell>{item.user.address}</TableCell>
+                                {item.orderedPaintings.map((painting) => (
+                                  <TableCell
+                                    key={painting._id}
+                                    className="cart-item-image"
+                                  >
+                                    <img
+                                      src={painting.paintingId.image.url}
+                                      alt={painting.paintingId.title}
+                                    />
+                                  </TableCell>
+                                ))}
+                                <TableCell>$ {item.total_price}</TableCell>
+                              </TableRow>
+                            ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  </Paper>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      )}
+      <Footer />
     </div>
   );
 };

@@ -8,15 +8,15 @@ const Modifypainting = () => {
   const [menubar, setMenuBar] = useState(false);
   const { paintingId } = useParams();
   const [categories, setCategories] = useState([]);
-  const [selectedImage, setSelectedImage] = useState({});
+  const [selectedImage, setSelectedImage] = useState("");
   const userId = sessionStorage.getItem("Id");
 
   const [painting, setPainting] = useState({
     userId: userId,
     title: "",
     description: "",
-    image: "",
-    categoryId: "",
+    // image: "",
+    categoryId: null,
     price: "",
     size: "",
   });
@@ -58,7 +58,7 @@ const Modifypainting = () => {
   };
   const handleImageChange = (event) => {
     console.log(event.target.files);
-    setSelectedImage([...event.target.files]);
+    setSelectedImage(event.target.files[0]);
   };
 
   // update painting data
@@ -67,14 +67,15 @@ const Modifypainting = () => {
 
     try {
       const formData = new FormData();
-      for (const image of selectedImage) {
-        formData.append("image", image);
-      }
+      // for (const image of selectedImage) {
+      //   formData.append("image", image);
+      // }
       formData.append("title", painting.title);
       formData.append("description", painting.description);
       formData.append("categoryId", painting.categoryId);
       formData.append("price", painting.price);
       formData.append("size", painting.size);
+      formData.append("image", selectedImage)
 
       const response = await axios.put(
         `http://localhost:5000/painting/${paintingId}`,
@@ -101,6 +102,8 @@ const Modifypainting = () => {
       // Update the state of the products with the new data
       setPainting(response.data);
       console.log(formData);
+      console.log("hello", selectedImage);
+      // window.location.href = "/profile";
     } catch (error) {
       console.error(error);
     }
@@ -195,7 +198,7 @@ const Modifypainting = () => {
           >
             <option value="">Select a category...</option>
             {categories.map((category) => (
-              <option key={category._id} value={category.title}>
+              <option key={category._id} value={category._id}>
                 {category.title}
               </option>
             ))}
