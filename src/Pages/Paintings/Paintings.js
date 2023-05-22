@@ -4,6 +4,7 @@ import "./Paintings.css";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import Line from "../../Images/image 22.png";
+import Footer from "../../components/footer/Footer";
 const Paintings = () => {
   const [paintings, setPaintings] = useState([]);
   const [title, setTitle] = useState([]);
@@ -88,19 +89,25 @@ const Paintings = () => {
     <div>
       <Navbar setMenuBar={setMenuBar} menubar={menubar} />
       <MenuBar menubar={menubar} />
-      {/* <div className="page-header">
-        <p className="page-title">Artistic Paintings</p>
-        <img src={Line} className="line" />
-      </div> */}
-      <div className="dropdown-menu">
-        <Select
-          className="dropdown-select"
-          options={options}
-          value={categoryId}
-          onChange={handleCategoryClick}
-          placeholder="Select a Category"
-        />
+      <div className="page-header">
+        <p className="page-title">
+          Artistic Paintings
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Yellowtail"
+          />
+        </p>
+        <div className="dropdown-menu">
+          <Select
+            className="dropdown-select"
+            options={options}
+            value={categoryId}
+            onChange={handleCategoryClick}
+            placeholder="Select a Category"
+          />
+        </div>
       </div>
+
       <div className="paintings-content">
         {paintings.map((item) => (
           <div key={item._id} className="painting-container">
@@ -113,6 +120,7 @@ const Paintings = () => {
           </div>
         ))}
       </div>
+      <Footer/>
     </div>
   );
 };

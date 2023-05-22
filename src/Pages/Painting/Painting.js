@@ -4,6 +4,7 @@ import './Painting.css'
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Navbar, MenuBar } from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 
 const Painting = () => {
   const [painting, setPainting] = useState([]);
@@ -109,6 +110,7 @@ const Painting = () => {
           <button onClick={(event) => handleCart(event, painting._id)}>Add to cart</button>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 import NestedGridComponent from "../../components/NestedGridComponent";
 import { Navbar, MenuBar } from "../../components/navbar/Navbar";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
   const [paintings, setPaintings] = useState([]);
@@ -27,6 +30,23 @@ const Home = () => {
 
     fetchPaintings();
   }, []);
+
+  const quotes = [
+    "Every human is an artist. The dream of your life is to make beautiful art.",
+    "A work of art which did not begin in emotion is not art.",
+    "A true artist is not one who is inspired, but one who inspires others.",
+  ];
+
+  const carouselSettings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000, // Adjust the speed (in milliseconds) as desired
+  };
 
   return (
     <>
@@ -65,10 +85,13 @@ const Home = () => {
         </div>
       </div>
       <div className="home3-wrapper">
-        <p className="home3-content">
-          “Every human is an artist. <br />
-          The dream of your life is to make beautiful art.”
-        </p>
+        <Slider {...carouselSettings}>
+          {quotes.map((quote, index) => (
+            <div key={index}>
+              <p className="home3-content"> “{quote}”</p>
+            </div>
+          ))}
+        </Slider>
       </div>
       <div className="home4-wrapper">
         <h1 className="home2-title">Quick View</h1>
@@ -84,6 +107,9 @@ const Home = () => {
             </div>
           ))}
         </div>
+        <Link to={"/paintings"} className="home2-button">
+          View more
+        </Link>
       </div>
       <Footer />
     </>

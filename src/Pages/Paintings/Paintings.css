@@ -5,43 +5,22 @@
 }
 .page-title {
   text-align: center;
-  font-size: 50px;
+  font-size: 80px;
+  font-family: Yellowtail;
 }
 .page-header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
-.line {
-  width: 50%;
-}
-/* .paintings-content {
-  width: 90%;
-  margin-top: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  border: red 2px solid;
-  padding: 10px;
-  display: grid;
-  grid-template-columns: 400px 400px 400px;
-  grid-template-rows: 400px;
-  justify-content: center;
-}
-
-.painting {
-  width: 390px;
-  height: 390px;
-  border-radius: 20px;
-  object-fit: cover;
-} */
 
 .paintings-content {
-  margin-top: 10%;
+  margin-top: 1%;
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
   justify-content: center;
+  align-items: center;
 }
 
 .painting {
@@ -50,16 +29,14 @@
   border-radius: 20px;
   object-fit: cover;
 }
-.title-carousel {
-  border: black solid 2px;
-  padding: 10px;
-  width: 30%;
-  background-color: transparent;
-  color: black;
-  font-size: 20px;
-  border-radius: 10px;
-  font-weight: 400;
-  cursor: pointer;
+.dropdown-menu{
+  width: 20%;
+
+}
+.overlay{
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 .view-button {
   background-color: transparent;
@@ -68,5 +45,5 @@
   border: none;
   cursor: pointer;
   padding: 10px;
-  font-size: 16px;
+  font-size: 20px;
 }
