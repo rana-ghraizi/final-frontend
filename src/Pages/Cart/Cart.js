@@ -166,7 +166,7 @@ const Cart = () => {
       {!userId ? (
         <div className="cart-wrapper-div1">
           <div className="cart-header-div1">
-            <h1 className="cart-title-b">Please log in to access your cart.</h1>
+            <h1 className="cart-title-h1">Please log in to access your cart.</h1>
           </div>
           <div className="cart-login">
             <Link to="/login" className="cart-login-link">
@@ -259,8 +259,8 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div className="cart-wrapper-empty">
-          <h1 className="text-empty">Your cart is empty.</h1>
+        <div className="cart-wrapper-div1">
+          <h1 className="cart-title-h1">Your cart is empty.</h1>
         </div>
       )}
       <Footer />

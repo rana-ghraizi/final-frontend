@@ -129,8 +129,8 @@ const Profile = () => {
 
       {!userId ? (
         <div className="cart-wrapper-div1">
-          <div className="cart-header">
-            <h1 className="cart-title-b">
+          <div className="cart-header-div1">
+            <h1 className="cart-title-h1">
               Please log in to access your profile.
             </h1>
           </div>

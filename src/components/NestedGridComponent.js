@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const NestedGridComponent = ({ paintings }) => {
   const [nestedPaintings, setNestedpaintings] = useState([]);
@@ -24,7 +25,9 @@ const NestedGridComponent = ({ paintings }) => {
     <div className="home4-content2">
       {nestedPaintings.map((item) => (
         <div key={item.id} className="image-container">
+          <Link className="view-button" to={`/paintings/${item._id}`}>
           <img src={item.image.url} alt={item.title} className="home4-pic2" />
+          </Link>
         </div>
       ))}
     </div>

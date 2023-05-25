@@ -99,15 +99,17 @@ const Home = () => {
           <NestedGridComponent paintings={paintings} />
           {paintings.map((item) => (
             <div key={item.id}>
-              <img
-                src={item.image.url}
-                alt={item.title}
-                className="home4-pic1"
-              />
+              <Link className="view-button" to={`/paintings/${item._id}`}>
+                <img
+                  src={item.image.url}
+                  alt={item.title}
+                  className="home4-pic1"
+                />
+              </Link>
             </div>
           ))}
         </div>
-        <Link to={"/paintings"} className="home2-button">
+        <Link to={"/paintings"} className="home-viewmore">
           View more
         </Link>
       </div>

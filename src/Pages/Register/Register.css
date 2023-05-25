@@ -1,37 +1,80 @@
-.next-button{
-    border: none;
-    padding: 10px;
-    width: 20%;
-    background-color: #689dff;
-    color: white;
-    font-size: 30px;
-    margin-top: 5%;
-    border-radius: 10px;
-    font-weight: 400;
-    cursor: pointer;
+.next-button {
+  border: none;
+  padding: 10px;
+  width: 20%;
+  background-color: #689dff;
+  color: white;
+  font-size: 30px;
+  margin-top: 5%;
+  border-radius: 10px;
+  font-weight: 400;
+  cursor: pointer;
 }
-.previous-button{
-    border: none;
-    padding: 10px;
-    width: 25%;
-    background-color: #689dff;
-    color: white;
-    font-size: 30px;
-    margin-top: 5%;
-    border-radius: 10px;
-    font-weight: 400;
-    cursor: pointer;
+.previous-button {
+  border: none;
+  padding: 10px;
+  width: 25%;
+  background-color: #689dff;
+  color: white;
+  font-size: 30px;
+  margin-top: 5%;
+  border-radius: 10px;
+  font-weight: 400;
+  cursor: pointer;
 }
-.register-button{
+.register-button {
+  border: none;
+  padding: 10px;
+  width: 25%;
+  background-color: #689dff;
+  color: white;
+  font-size: 30px;
+  margin-top: 5%;
+  border-radius: 10px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-left: 28%;
+}
+.username-select {
+  width: 80%;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.45);
+  border: solid 2px #689dff;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.username-select:focus {
+  border-color: #689dff;
+  outline: none;
+}
+@media only screen and (max-width: 767px) {
+  .next-button {
+    padding: 8px;
+    width: 50%;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .previous-button {
     border: none;
-    padding: 10px;
-    width: 25%;
-    background-color: #689dff;
-    color: white;
-    font-size: 30px;
-    margin-top: 5%;
-    border-radius: 10px;
-    font-weight: 400;
-    cursor: pointer;
-    margin-left: 28%;
+    padding: 8px;
+    width: 49%;
+    font-size: 20px;
+  }
+  .register-button {
+    padding: 8px;
+    width: 49%;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 4px;
+  }
+  .username-select {
+    width: 95%;
+    padding: 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.45);
+    border: solid 2px #689dff;
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
 }

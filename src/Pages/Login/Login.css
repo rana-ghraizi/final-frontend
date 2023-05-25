@@ -66,9 +66,6 @@
   cursor: pointer;
   margin-left: 58%;
 }
-.login-pic {
-  width: 80%;
-}
 .error-message{
     color: #E45F96;
     font-size: 20px;
@@ -77,4 +74,43 @@
 .login-a{
     color: #689dff;
     text-decoration: none;
+}
+@media only screen and (max-width: 767px){
+  .login-wrapper-container {
+    border-radius: 50px;
+    width: 85%;
+    height: auto;
+    flex-direction: column-reverse;
+  }
+  .login-content {
+    width: 60%;
+  }
+  .login-image{
+    width: 100%;
+  }
+  .login-image-img{
+    width: 100%;
+  }
+  .login-content-h1 {
+    font-size: 30px;
+  }
+  .login-content-p {
+    font-size: 20px;
+  }
+  .about-username {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  .username-input {
+    width: 85%;
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+  .login-button {
+    padding: 8px;
+    width: 50%;
+    font-size: 20px;
+    margin-left: 48%;
+    margin-bottom: 10px;
+  }
 }

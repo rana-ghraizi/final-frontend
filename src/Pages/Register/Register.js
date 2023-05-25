@@ -137,7 +137,7 @@ const Login = () => {
                 <div className="username">
                   <label className="about-username">Role:</label>
                   <select
-                    className="username-input"
+                    className="username-select"
                     id="role"
                     name="role"
                     value={role}
@@ -145,7 +145,7 @@ const Login = () => {
                   >
                     <option value="">Select Role</option>
                     <option value="user">User</option>
-                    <option value="admin">Artist</option>
+                    <option value="artist">Artist</option>
                   </select>
                 </div>
                 {error && <p className="error-message"> {error}</p>}
@@ -165,7 +165,7 @@ const Login = () => {
           </form>
         </div>
         <div className="login-image">
-          <img src={login} alt="login-pic" />
+          <img src={login} alt="login-pic" className="login-image-img" />
         </div>
       </div>
     </div>

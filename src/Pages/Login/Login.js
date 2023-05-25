@@ -83,7 +83,7 @@ const Login = () => {
           </form>
         </div>
         <div className="login-image">
-          <img src={login} alt="login-pic" />
+          <img src={login} alt="login-pic" className="login-image-img"/>
         </div>
       </div>
     </div>

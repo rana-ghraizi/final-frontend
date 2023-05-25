@@ -3,11 +3,30 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 655px;
+  min-height: 645px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; 
+}
+.cart-title-h1{
+  font-size: 50px;
+}
+.cart-login-link {
+  background-color: #689dff;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.cart-login-link:hover {
+  background-color: transparent;
+  color: black;
+  border: #689dff solid 2px;
 }
 .cart-wrapper {
   background-image: url("../../Images/Desktop\ -\ 2.png");
@@ -101,5 +120,8 @@
     cursor: pointer;
     font-size: 19px;
     border-radius: 5px;
+  }
+  .cart-title-h1{
+    padding-left: 10px
   }
 }

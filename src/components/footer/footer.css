@@ -2,7 +2,7 @@
 .footer-container {
   overflow: hidden;
   width: 1803px;
-  height: 175px;
+  height: 230px;
   display: grid;
   background-color: #fbece4;
   color: black;
@@ -27,6 +27,7 @@
   flex-direction: column;
   gap: 10px;
   color: black;
+  margin-bottom: 10px;
 }
 .Contact-footer-p {
   margin-top: 5px;
@@ -41,14 +42,14 @@
 .question-footer{
   width: 100%;
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .footer-container {
     height: 430px;
     width: 96%;
     grid-template-columns: 1fr;
     text-align: center;
   }
-}
+} */
 /* styles for mobile */
 @media (max-width: 600px) {
   .footer-container {
