@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import './Painting.css'
+import "./Painting.css";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Navbar, MenuBar } from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Painting = () => {
   const [painting, setPainting] = useState([]);
@@ -56,10 +59,10 @@ const Painting = () => {
         });
       } catch (error) {
         console.error(error);
-      } 
-    } 
+      }
+    }
     // else if ( role === 'Artist') {
-    //   const result = await 
+    //   const result = await
     //   Swal.fire({
     //     title: "You should to be a user to add items to your cart",
     //     showCancelButton: true,
@@ -72,8 +75,7 @@ const Painting = () => {
     //   });
     // }
     else {
-      const result = await 
-      Swal.fire({
+      const result = await Swal.fire({
         title: "You need to be logged in to add items to your cart",
         showCancelButton: true,
         confirmButtonText: "Log in",
@@ -91,26 +93,85 @@ const Painting = () => {
 
   return (
     <div>
-      <Navbar setMenuBar={setMenuBar} menubar={menubar}/>
+      <Navbar setMenuBar={setMenuBar} menubar={menubar} />
       <MenuBar menubar={menubar} />
       <div className="painting--container">
-        {painting.image && (
-          <img
-            src={painting.image.url}
-            alt={painting.title}
-            className="painting-image"
-          />
-        )}
-        <div className="painting-content">
-          <h1>{painting.title}</h1>
-          <p>{painting.description}</p>
-          <p>Price: $ {painting.price}</p>
-          <p>Size: {painting.size} cm</p>
-          {painting.soldOut && <p>Sold Out</p>}
-          <button onClick={(event) => handleCart(event, painting._id)}>Add to cart</button>
+        <div className="back">
+          <Link to={"/paintings"} className="back-button">
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </Link>
+        </div>
+        <div className="painting--image">
+          {painting.image && (
+            <img
+              src={painting.image.url}
+              alt={painting.title}
+              className="painting-image"
+            />
+          )}
+        </div>
+        <div className="detalis-bg">
+          <div className="painting-content">
+            {!painting.soldOut ? (
+              <>
+                <h1 className="painting-content-h1">
+                  {painting.title}{" "}
+                  <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css?family=Yellowtail"
+                  />
+                </h1>
+                <p className="painting-content-p">{painting.description}</p>
+                <p className="painting-content-p">
+                  <strong>Price:</strong> $ {painting.price}
+                </p>
+                <p className="painting-content-p">
+                  <strong>Size:</strong> {painting.size} cm
+                </p>
+                <button
+                  onClick={(event) => handleCart(event, painting._id)}
+                  className="painting-content-button"
+                >
+                  Add to cart
+                </button>
+              </>
+            ) : (
+              <div className="sold-out"></div>
+            )}
+          </div>
+        </div>
+        <div className="detalis--bg">
+          <div className="painting-content">
+            {!painting.soldOut ? (
+              <>
+                <h1 className="painting-content-h1">
+                  {painting.title}{" "}
+                  <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css?family=Yellowtail"
+                  />
+                </h1>
+                <p className="painting-content-p">{painting.description}</p>
+                <p className="painting-content-p">
+                  <strong>Price:</strong> $ {painting.price}
+                </p>
+                <p className="painting-content-p">
+                  <strong>Size:</strong> {painting.size} cm
+                </p>
+                <button
+                  onClick={(event) => handleCart(event, painting._id)}
+                  className="painting-content-button"
+                >
+                  Add to cart
+                </button>
+              </>
+            ) : (
+              <div className="sold-out"></div>
+            )}
+          </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

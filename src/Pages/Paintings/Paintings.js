@@ -3,7 +3,6 @@ import { Navbar, MenuBar } from "../../components/navbar/Navbar";
 import "./Paintings.css";
 import { Link } from "react-router-dom";
 import Select from "react-select";
-import Line from "../../Images/image 22.png";
 import Footer from "../../components/footer/Footer";
 const Paintings = () => {
   const [paintings, setPaintings] = useState([]);
@@ -111,12 +110,9 @@ const Paintings = () => {
       <div className="paintings-content">
         {paintings.map((item) => (
           <div key={item._id} className="painting-container">
+            <Link className="view-button" to={`/paintings/${item._id}`}>
             <img src={item.image.url} alt={item.title} className="painting" />
-            <div className="overlay">
-              <Link className="view-button" to={`/paintings/${item._id}`}>
-                View Details
-              </Link>
-            </div>
+            </Link>
           </div>
         ))}
       </div>

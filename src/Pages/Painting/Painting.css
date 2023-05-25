@@ -1,18 +1,121 @@
-.painting--container{
-    margin-top: 5%;
-    border: red solid 2px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    display: flex;
-    gap: 10%;
+.painting--container {
+  background-color: #fbfbfb;
+  margin-top: 5%;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  display: flex;
+  gap: 10%;
+  padding: 40px;
+  min-height: 500px;
 }
-.painting-content{
+.back-button {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px;
+  background-color: transparent;
+  border-radius: 5px;
+}
+.back-button:hover {
+  padding: 5px;
+  background-color: #bebebe;
+  border-radius: 5px;
+}
+.painting-content {
+  width: 420px;
+  height: 420px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+.detalis-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-image: url(../../Images//details\ bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.detalis--bg{
+  display: none;
+}
+.sold-out {
+  background-image: url(../../Images/Untitled_Design-removebg-preview.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
+  height: 80%;
+}
+.painting-image {
+  border-radius: 20px;
+  object-fit: contain;
+  width: 600px;
+}
+.painting-content-h1 {
+  font-size: 40px;
+  font-family: Yellowtail;
+  font-weight: 400;
+}
+.painting-content-button {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.painting-content-p {
+  font-size: 20px;
+}
+@media only screen and (max-width: 767px){
+  .painting--container {
+    width: 70%;
     display: flex;
     flex-direction: column;
+    gap: 10%;
+    justify-content: center;
+    align-items: center;
+  }
+  .painting-image {
+    border-radius: 20px;
+    object-fit: contain;
+    width: 280px;
+  }
+  .detalis-bg {
+    display: none;
+  }
+  .detalis--bg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+  }
+  .sold-out {
+    background-image: url(../../Images/Untitled_Design-removebg-preview.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 75%;
+    height: 95%;
+  }
+  .painting-content {
+    width: 420px;
+    height: 420px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .back{
+    margin-bottom: 10%;
+  }
 }
-.painting-image{  
-    padding-left: 5%;
-    object-fit: cover;
-    width: 600px;
-}
+/* @media only screen and (min-width: 768px) and (max-width: 1023px){
+} */

@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, MenuBar } from "../../components/navbar/Navbar";
 import { Link } from "react-router-dom";
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 import Footer from "../../components/footer/Footer";
+import "./Cart.css";
 
 const Cart = () => {
   const userId = sessionStorage.getItem("Id");
@@ -38,7 +47,7 @@ const Cart = () => {
     { id: "painting", label: "Painting", minWidth: 100 },
     { id: "size", label: "Size", minWidth: 100 },
     { id: "price", label: "Price", minWidth: 100 },
-    { id: "remove", label: " ", minWidth: 100 },
+    { id: "remove", label: "Remove", minWidth: 100 },
   ];
 
   const handleRemove = async (userId, paintingId) => {
@@ -137,7 +146,6 @@ const Cart = () => {
         }
         console.log("rana", orderStatus);
         console.log("rana", userId);
-
       })
       .catch((error) => {
         // set order status to failure
@@ -157,7 +165,7 @@ const Cart = () => {
       <MenuBar menubar={menubar} />
       {!userId ? (
         <div className="cart-wrapper-div1">
-          <div className="cart-header">
+          <div className="cart-header-div1">
             <h1 className="cart-title-b">Please log in to access your cart.</h1>
           </div>
           <div className="cart-login">
@@ -169,7 +177,13 @@ const Cart = () => {
       ) : hasItems ? (
         <div className="cart-wrapper">
           <div className="cart-header">
-            <h1 className="cart-title">Cart</h1>
+            <h1 className="cart-title">
+              Cart
+              <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css?family=Yellowtail"
+              />
+            </h1>
           </div>
 
           <div className="cart-table">
@@ -179,7 +193,7 @@ const Cart = () => {
                 overflow: "hidden",
                 marginLeft: "auto",
                 marginRight: "auto",
-                border: "#0B486A solid 1px",
+                border: "#6D71FF solid 1px",
               }}
             >
               <TableContainer sx={{ maxHeight: 440 }}>
@@ -249,13 +263,9 @@ const Cart = () => {
           <h1 className="text-empty">Your cart is empty.</h1>
         </div>
       )}
-      <Footer/>
+      <Footer />
     </>
   );
 };
 
 export default Cart;
-
-// tomorrow:
-// 2. user info
-// 3. About us styling
