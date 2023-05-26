@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Navbar, MenuBar } from "../../components/navbar/Navbar";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import "./Modifypainting.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Modifypainting = () => {
   const [menubar, setMenuBar] = useState(false);
@@ -15,7 +17,6 @@ const Modifypainting = () => {
     userId: userId,
     title: "",
     description: "",
-    // image: "",
     categoryId: null,
     price: "",
     size: "",
@@ -75,7 +76,7 @@ const Modifypainting = () => {
       formData.append("categoryId", painting.categoryId);
       formData.append("price", painting.price);
       formData.append("size", painting.size);
-      formData.append("image", selectedImage)
+      formData.append("image", selectedImage);
 
       const response = await axios.put(
         `http://localhost:5000/painting/${paintingId}`,
@@ -145,93 +146,112 @@ const Modifypainting = () => {
   const form = useRef();
 
   return (
-    <div>
-      <Navbar setMenuBar={setMenuBar} menubar={menubar} />
-      <MenuBar menubar={menubar} />
-      <button onClick={handleDelete}>Delete painting</button>
-      <form
-        className="product-edit-form"
-        onSubmit={handleEditSubmit}
-        ref={form}
-      >
-        <div className="username">
-          <label className="About_username">Painting title:</label> <br />
-          <input
-            className="product-edit-input"
-            type="text"
-            id="username"
-            placeholder="Painting title"
-            name="title"
-            value={painting.title}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="username">
-          <label className="About_username">Description:</label> <br />
-          <textarea
-            className="product-edit-input"
-            type="text"
-            id="username"
-            placeholder="discription"
-            name="description"
-            value={painting.description}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="username">
-          <label className="About_username">Uplaod image:</label> <br />
-          <input
-            className="product-edit-input"
-            id="username"
-            type="file"
-            name="image"
-            onChange={handleImageChange}
-          />
-        </div>
-        <div className="username">
-          <label className="About_username">Category:</label> <br />
-          <select
-            id="category"
-            name="categoryId"
-            value={painting.categoryId}
-            onChange={handleInputChange}
-          >
-            <option value="">Select a category...</option>
-            {categories.map((category) => (
-              <option key={category._id} value={category._id}>
-                {category.title}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="username">
-          <label className="About_username">Price:</label> <br />
-          <input
-            className="product-edit-input"
-            type="number"
-            id="username"
-            placeholder="Price"
-            name="price"
-            value={painting.price}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="username">
-          <label className="About_username">Size:</label> <br />
-          <input
-            className="product-edit-input"
-            type="text"
-            id="username"
-            placeholder="Size"
-            name="size"
-            value={painting.size}
-            onChange={handleInputChange}
-          />
-        </div>
-        <button className="product-edit-button" type="submit">
-          Update painting
-        </button>
-      </form>
+    <div className="modify-wrapper">
+      <div className="back">
+        <Link to={"/profile"} className="back-button">
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </Link>
+      </div>
+      <div className="modify-form">
+        <form
+          className="product-edit-form"
+          onSubmit={handleEditSubmit}
+          ref={form}
+        >
+          <div className="username">
+            <label className="update-Address">
+              Painting title:
+              <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css?family=Yellowtail"
+              />
+            </label>{" "}
+            <br />
+            <input
+              className="user-inputs"
+              type="text"
+              id="username"
+              placeholder="Painting title"
+              name="title"
+              value={painting.title}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="username">
+            <label className="update-Address">Description:</label> <br />
+            <textarea
+              className="user-inputs"
+              type="text"
+              id="username"
+              placeholder="discription"
+              name="description"
+              value={painting.description}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="image-cat">
+            <div className="username">
+              <label className="update-Address">Uplaod image:</label> <br />
+              <input
+                className="user-inputs"
+                id="username"
+                type="file"
+                name="image"
+                onChange={handleImageChange}
+              />
+            </div>
+            <div className="username">
+              <label className="update-Address">Category:</label> <br />
+              <select
+                id="category"
+                name="categoryId"
+                value={painting.categoryId}
+                onChange={handleInputChange}
+                className="userrr--inputs"
+              >
+                <option value="">Select a category...</option>
+                {categories.map((category) => (
+                  <option key={category._id} value={category._id}>
+                    {category.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="username">
+            <label className="update-Address">Price:</label> <br />
+            <input
+              className="user-inputs"
+              type="number"
+              id="username"
+              placeholder="Price"
+              name="price"
+              value={painting.price}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="username">
+            <label className="update-Address">Size:</label> <br />
+            <input
+              className="user-inputs"
+              type="text"
+              id="username"
+              placeholder="Size"
+              name="size"
+              value={painting.size}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="modify-buttons">
+            <button className="add_painting" type="submit">
+              Update painting
+            </button>
+            <button onClick={handleDelete} className="add_painting">
+              Delete painting
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

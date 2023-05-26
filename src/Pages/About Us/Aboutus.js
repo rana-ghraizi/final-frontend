@@ -12,4 +12,4 @@ const Aboutus = () => {
   )
 }
 
-export default Aboutus
+export default Aboutus;

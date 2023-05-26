@@ -12,6 +12,8 @@ import {
   TableRow,
 } from "@mui/material";
 import Footer from "../../components/footer/Footer";
+import "./Profile.css";
+import profile from "../../Images/profileee.jpg";
 
 const Profile = () => {
   const [menubar, setMenuBar] = useState(false);
@@ -143,68 +145,83 @@ const Profile = () => {
       ) : (
         <div>
           {/* user form */}
-          <div>
-            <h1>My Info</h1>
-            <button onClick={handleLogout}>Logout</button>
-            <form onSubmit={updateUser}>
-              <div className="user-form">
-                <div className="user-username">
-                  <p>
-                    Username: <br />
-                    <br />
-                    {user.username}
-                  </p>
-                </div>
-                <div className="update-label">
-                  <div className="address-label">
-                    <label className="update-Address">
-                      Address:
-                      <br />
-                      <input
-                        className="user-inputs"
-                        type="text"
-                        value={address}
-                        placeholder="New Address"
-                        onChange={(event) => setAddress(event.target.value)}
-                      />
-                    </label>
+          <div className="user-info-wrapper">
+            <div className="userinfo-first">
+              <h1 className="userinfo-h1">
+                My Information
+                <link
+                  rel="stylesheet"
+                  href="https://fonts.googleapis.com/css?family=Yellowtail"
+                />
+              </h1>
+              <button onClick={handleLogout} className="logout">
+                Logout
+              </button>
+            </div>
+            <div className="userinfo-second">
+              <div>
+                <form onSubmit={updateUser} className="userinfo-form">
+                  <div className="user-form">
+                    <div className="user-username">
+                      <p className="user-usernameee">Username:</p>
+                      <p className="username--user">{user.username}</p>
+                    </div>
+                    <div className="update-label">
+                      <div className="address-label">
+                        <label className="update-Address">
+                          Address:
+                          <br />
+                          <input
+                            className="user-inputs"
+                            type="text"
+                            value={address}
+                            placeholder="New Address"
+                            onChange={(event) => setAddress(event.target.value)}
+                          />
+                        </label>
+                      </div>
+                      <div className="update-Address">
+                        <label className="update-phonenumber">
+                          Phonenumber:
+                          <br />
+                          <input
+                            className="user-inputs"
+                            type="text"
+                            value={phoneNumber}
+                            placeholder="phonenumber"
+                            onChange={(event) =>
+                              setPhoneNumber(event.target.value)
+                            }
+                          />
+                        </label>
+                      </div>
+                    </div>
+                    <div className="user-username">
+                      <p className="user-usernameee">Role:</p>
+                      <p className="username--user">{user.role}</p>
+                    </div>
+                    <button className="submit-button" type="submit">
+                      Update
+                    </button>
                   </div>
-                  <div className="phonenumber-label">
-                    <label className="update-phonenumber">
-                      Phonenumber:
-                      <br />
-                      <input
-                        className="user-inputs"
-                        type="text"
-                        value={phoneNumber}
-                        placeholder="phonenumber"
-                        onChange={(event) => setPhoneNumber(event.target.value)}
-                      />
-                    </label>
-                  </div>
-                  <div className="user-username">
-                    <p>
-                      Role: <br />
-                      <br />
-                      {user.role}
-                    </p>
-                  </div>
-                </div>
-                <button className="submit-button" type="submit">
-                  Update
-                </button>
+                </form>
               </div>
-            </form>
+              <div className="profileimg-div">
+                <img src={profile} alt="img" className="profilee-img" />
+              </div>
+            </div>
           </div>
           {user.role === "user" ? null : (
             <>
               {/* my paintings */}
 
-              <div>
-                <h1>My Paintings</h1>
-                <Link className="view-button" to={"/addPainting"}>
-                  Add painting
-                </Link>
+              <div className="paintings-info-wrapper">
+                <div className="paintinginfo-first">
+                  <h1 className="paintinginfo-h1">My Paintings</h1>
+                  <Link className="add_painting" to={"/addPainting"}>
+                    Add painting
+                  </Link>
+                </div>
                 <div className="paintings-content">
                   {paintings.length > 0 ? (
                     paintings.map((item) => (
@@ -231,8 +248,10 @@ const Profile = () => {
               </div>
 
               {/* orders */}
-              <div>
-                <h1>Orders</h1>
+              <div className="order-info-wrapper">
+                <div className="paintinginfo-first">
+                  <h1 className="paintinginfo-h1">Orders</h1>
+                </div>
                 <div className="cart-table">
                   <Paper
                     sx={{
@@ -289,7 +308,7 @@ const Profile = () => {
           )}
         </div>
       )}
-      <Footer/>
+      <Footer />
     </div>
   );
 };

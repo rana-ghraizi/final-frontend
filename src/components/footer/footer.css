@@ -42,14 +42,18 @@
 .question-footer{
   width: 100%;
 }
-/* @media (max-width: 768px) {
+@media (max-width: 1200px) {
   .footer-container {
-    height: 430px;
+    height: 650px;
     width: 96%;
     grid-template-columns: 1fr;
     text-align: center;
   }
-} */
+  .footer-logo {
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+}
 /* styles for mobile */
 @media (max-width: 600px) {
   .footer-container {

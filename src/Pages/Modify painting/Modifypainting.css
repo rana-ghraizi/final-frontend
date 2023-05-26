@@ -1,0 +1,55 @@
+.formadd-painting{
+    margin-top: 3%;
+}
+.modify-wrapper {
+  padding: 20px;
+  background-image: url("../../Images/backkkgr2.jpg");
+  height: 95vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+}
+.modify-form {
+  width: 80%;
+}
+.image-cat {
+  width: 75%;
+  display: flex;
+}
+.modify-buttons {
+  margin-top: 3%;
+  display: flex;
+  gap: 45%;
+}
+.userrr--inputs {
+  background-color: white;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: solid 2px #6d71ff;
+  font-size: 20px;
+}
+.userrr--inputs:focus {
+  border-color: #6d71ff;
+  outline: none;
+}
+@media only screen and (max-width: 767px) {
+  .modify-wrapper {
+    height: 120vh;
+  }
+  .image-cat {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+  }
+  .modify-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,143 @@
+.user-info-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 90%; */
+  min-height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.userinfo-first {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.paintinginfo-first {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logout {
+  padding: 10px;
+  border: none;
+  background-color: #689dff;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.add_painting{
+  padding: 10px;
+  border: none;
+  background-color: #689dff;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.userinfo-h1 {
+  font-family: Yellowtail;
+  font-size: 80px;
+  font-weight: 400;
+}
+.paintinginfo-h1 {
+  margin-left: 10%;
+  font-family: Yellowtail;
+  font-size: 80px;
+  font-weight: 400;
+}
+.userinfo-second {
+  padding: 10px;
+  width: 80%;
+  display: flex;
+  gap: 10%;
+  justify-content: center;
+  align-items: center;
+}
+.userinfo-form {
+  background-color: #fbfbfb;
+  border-radius: 20px;
+  width: 100%;
+  border: #6d71ff solid 3px;
+  box-shadow: 6px 6px 6px rgba(0.8, 0.8, 0.8, 0.8);
+  padding: 10px;
+  margin-bottom: 10%;
+}
+.user-username {
+  font-size: 30px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.user-usernameee {
+  font-size: 40px;
+  font-family: Yellowtail;
+}
+.username--user {
+  margin-top: 10%;
+  font-size: 20px;
+}
+.update-Address {
+  font-size: 40px;
+  font-family: Yellowtail;
+}
+.user-inputs {
+  width: 75%;
+  padding: 10px;
+  border-radius: 12px;
+  border: solid 2px #6d71ff;
+  font-size: 20px;
+  background-color: white;
+}
+.user-inputs:focus {
+  border-color: #6d71ff;
+  outline: none;
+}
+.submit-button {
+  border: none;
+  padding: 10px;
+  width: 40%;
+  background-color: #689dff;
+  color: white;
+  font-size: 25px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.profileimg-div {
+  width: 75%;
+  height: auto;
+}
+.profilee-img {
+  width: 100%;
+}
+.order-info-wrapper{
+  margin-bottom: 10%;
+}
+@media only screen and (max-width: 767px){
+  .profileimg-div{
+    display: none;
+  }
+  .userinfo-first {
+    margin-top: 10px;
+    width: 60%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .userinfo-h1 {
+    font-size: 60px;
+  }
+  .paintinginfo-h1 {
+    font-size: 60px;
+  }
+  .paintinginfo-first {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+}
