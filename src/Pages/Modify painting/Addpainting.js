@@ -68,7 +68,8 @@ const Addpainting = () => {
         }
       );
       console.log("hhhh", formData);
-      Swal.fire({
+
+      await Swal.fire({
         title: "Product added successfully!",
         icon: "success",
         showCancelButton: false,
@@ -79,6 +80,7 @@ const Addpainting = () => {
           confirmButton: "custom-style",
         },
       });
+
       // Update the state of the products with the new list
       setPainting(response.data);
       console.log(painting);
@@ -87,6 +89,7 @@ const Addpainting = () => {
       console.error(error);
     }
   };
+
   const form = useRef();
 
   return (
@@ -104,7 +107,7 @@ const Addpainting = () => {
         >
           <div className="username">
             <label className="update-Address">
-              Painting title:
+              Artist Name
               <link
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css?family=Yellowtail"
@@ -115,19 +118,19 @@ const Addpainting = () => {
               className="user-inputs"
               type="text"
               id="username"
-              placeholder="Painting title"
+              placeholder="Name"
               name="title"
               value={painting.title}
               onChange={handleInputChange}
             />
           </div>
           <div className="username">
-            <label className="update-Address">Description:</label> <br />
+            <label className="update-Address">Painting Description:</label> <br />
             <textarea
               className="user-inputs"
               type="text"
               id="username"
-              placeholder="discription"
+              placeholder="description"
               name="description"
               value={painting.description}
               onChange={handleInputChange}

@@ -159,7 +159,7 @@ const Profile = () => {
               </button>
             </div>
             <div className="userinfo-second">
-              <div>
+              <div className='classname-form'>
                 <form onSubmit={updateUser} className="userinfo-form">
                   <div className="user-form">
                     <div className="user-username">

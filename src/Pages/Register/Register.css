@@ -78,3 +78,33 @@
     margin-bottom: 15px;
   }
 }
+@media only screen and (min-width: 768px) and (max-width: 1200px){
+  .next-button {
+    padding: 8px;
+    width: 50%;
+    /* font-size: 20px; */
+    margin-bottom: 10px;
+  }
+  .previous-button {
+    border: none;
+    padding: 8px;
+    width: 49%;
+    font-size: 20px;
+  }
+  .register-button {
+    padding: 8px;
+    width: 49%;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 4px;
+  }
+  .username-select {
+    width: 95%;
+    padding: 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.45);
+    border: solid 2px #689dff;
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+}

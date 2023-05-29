@@ -114,3 +114,33 @@
     margin-bottom: 10px;
   }
 }
+@media only screen and (min-width: 768px) and (max-width: 1200px){
+  .login-wrapper-container {
+    width: 80%;
+    height: 65vh;
+    margin-top: 20%;
+    padding: 10px;
+  }
+  .login-content-h1 {
+    font-size: 40px;
+  }
+  .login-content-p {
+    font-size: 20px;
+  }
+  .about-username {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .username-input {
+    width: 85%;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .login-button {
+    padding: 8px;
+    width: 50%;
+    font-size: 20px;
+    margin-left: 48%;
+    margin-bottom: 10px;
+  }
+}

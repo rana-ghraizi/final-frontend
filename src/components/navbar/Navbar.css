@@ -35,6 +35,13 @@
 .navnavbar-button a:hover {
   color: #6d71ff;
 }
+.navlinks{
+  text-decoration: none;
+  color: black;
+}
+.navlinks.active{
+  color: #6d71ff;
+}
 .navcontact-button {
   background-color: transparent;
   border: none;

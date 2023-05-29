@@ -62,53 +62,52 @@ const Modifypainting = () => {
     setSelectedImage(event.target.files[0]);
   };
 
-  // update painting data
-  const handleEditSubmit = async (event) => {
-    event.preventDefault();
+// update painting data
+const handleEditSubmit = async (event) => {
+  event.preventDefault();
 
-    try {
-      const formData = new FormData();
-      // for (const image of selectedImage) {
-      //   formData.append("image", image);
-      // }
-      formData.append("title", painting.title);
-      formData.append("description", painting.description);
-      formData.append("categoryId", painting.categoryId);
-      formData.append("price", painting.price);
-      formData.append("size", painting.size);
-      formData.append("image", selectedImage);
+  try {
+    const formData = new FormData();
+    // for (const image of selectedImage) {
+    //   formData.append("image", image);
+    // }
+    formData.append("title", painting.title);
+    formData.append("description", painting.description);
+    formData.append("categoryId", painting.categoryId);
+    formData.append("price", painting.price);
+    formData.append("size", painting.size);
+    formData.append("image", selectedImage);
 
-      const response = await axios.put(
-        `http://localhost:5000/painting/${paintingId}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      Swal.fire({
-        title: "Product updated successfully!",
-        icon: "success",
-        showCancelButton: false,
-        confirmButtonText: "OK",
-        customClass: {
-          popup: "custom-style",
-          title: "custom-style",
-          confirmButton: "custom-style",
+    const response = await axios.put(
+      `http://localhost:5000/painting/${paintingId}`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
-      });
+      }
+    );
 
-      // Update the state of the products with the new data
-      setPainting(response.data);
-      console.log(formData);
-      console.log("hello", selectedImage);
-      // window.location.href = "/profile";
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    await Swal.fire({
+      title: "Product updated successfully!",
+      icon: "success",
+      showCancelButton: false,
+      confirmButtonText: "OK",
+      customClass: {
+        popup: "custom-style",
+        title: "custom-style",
+        confirmButton: "custom-style",
+      },
+    });
+
+    // Update the state of the products with the new data
+    setPainting(response.data);
+    window.location.href = "/profile";
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 
   //   delete painting
   const handleDelete = async () => {
@@ -160,7 +159,7 @@ const Modifypainting = () => {
         >
           <div className="username">
             <label className="update-Address">
-              Painting title:
+              Artist Name:
               <link
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css?family=Yellowtail"
@@ -171,19 +170,19 @@ const Modifypainting = () => {
               className="user-inputs"
               type="text"
               id="username"
-              placeholder="Painting title"
+              placeholder="Name"
               name="title"
               value={painting.title}
               onChange={handleInputChange}
             />
           </div>
           <div className="username">
-            <label className="update-Address">Description:</label> <br />
+            <label className="update-Address">Painting Description:</label> <br />
             <textarea
               className="user-inputs"
               type="text"
               id="username"
-              placeholder="discription"
+              placeholder="description"
               name="description"
               value={painting.description}
               onChange={handleInputChange}
