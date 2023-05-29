@@ -64,7 +64,13 @@ const Home = () => {
         </div>
       </div>
       <div className="home2-wrapper">
-        <h1 className="home2-title">Who Are We?</h1>
+        <h1 className="home2-title">
+          Who Are We?
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Yellowtail"
+          />
+        </h1>
         <div className="home-group2">
           <img src={pic1} alt="image1" className="home-pic1" />
           <div className="home2-content">

@@ -17,7 +17,7 @@ const Painting = () => {
 
   const userId = sessionStorage.getItem("Id");
   const role = sessionStorage.getItem("role");
-
+  
   useEffect(() => {
     const fetchPainting = async () => {
       try {

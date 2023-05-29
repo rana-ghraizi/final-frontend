@@ -15,6 +15,7 @@
   font-weight: 400;
   width: 50%;
   margin-left: 3%;
+  font-family: Yellowtail;
 }
 .home-slogan {
   font-size: 30px;
@@ -58,7 +59,7 @@
   border-radius: 20px;
   padding-top: 10px;
 }
-.home2-button {
+/* .home2-button {
   padding: 10px;
   background-color: #689dff;
   color: white;
@@ -67,6 +68,39 @@
   margin-top: 20px;
   border-radius: 10px;
   cursor: pointer;
+} */
+.home2-button {
+  text-decoration: none;
+  padding: 10px;
+  border: unset;
+  border-radius: 10px;
+  color: white;
+  z-index: 1;
+  background-color: #689dff;
+  position: relative;
+  font-size: 30px;
+  transition: all 250ms;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.home2-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  background-color: #0059ff;
+  z-index: -1;
+  transition: all 250ms;
+}
+.home2-button:hover {
+  color: white;
+}
+.home2-button:hover::before {
+  width: 100%;
 }
 .home2-content {
   display: flex;

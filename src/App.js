@@ -8,10 +8,13 @@ import Cart from './Pages/Cart/Cart';
 import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
 import Painting from './Pages/Painting/Painting';
+import Dashboard from './Pages/Dashboard/Dashboard.js'
 import Modifypainting from './Pages/Modify painting/Modifypainting';
 import Addpainting from './Pages/Modify painting/Addpainting';
-
+import NotFound from './Pages/notFound/NotFound';
 function App() {
+  const role = sessionStorage.getItem("role");
+
   return (
     <>
     <BrowserRouter>
@@ -32,6 +35,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/profile" element={<Profile />} />
+          {role === "admin" && (
+          <Route path="/dashboard" element={<Dashboard />} />
+          )}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>

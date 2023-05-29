@@ -103,29 +103,6 @@ const Cart = () => {
         if (response.ok) {
           // set order status to success
           setOrderStatus("success");
-          // // send email
-
-          // const serviceId = "service_fyhs1bs";
-          // const templateId = "template_axzix4f";
-          // const userId = "PiwL_rIX2-s0Sa9oC";
-          // const templateParams = {
-          //   name: totalData.userId.username,
-          //   address: totalData.userId.address,
-          //   phonenumber: totalData.userId.phonenumber,
-          //   total: totalData.bill.toFixed(2),
-          //   items: tableData.map((item) => item.paintingId.title),
-          //   message: "You have a new order to prosses",
-          // };
-          // console.log("here", totalData);
-
-          // emailjs.send(serviceId, templateId, templateParams, userId).then(
-          //   function (response) {
-          //     console.log("SUCCESS!", response.status, response.text);
-          //   },
-          //   function (error) {
-          //     console.log("FAILED...", error);
-          //   }
-          // );
           Swal.fire({
             icon: "success",
             title: "Order placed successfully!",
@@ -166,7 +143,9 @@ const Cart = () => {
       {!userId ? (
         <div className="cart-wrapper-div1">
           <div className="cart-header-div1">
-            <h1 className="cart-title-h1">Please log in to access your cart.</h1>
+            <h1 className="cart-title-h1">
+              Please log in to access your cart.
+            </h1>
           </div>
           <div className="cart-login">
             <Link to="/login" className="cart-login-link">

@@ -53,6 +53,7 @@ const Login = () => {
         navigate("/");
       }
       console.log("Registration successful");
+      sessionStorage.setItem("role", data.role);
     } catch (error) {
       setError(error.message);
       console.error(error);
