@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Modifypainting = () => {
-  const [menubar, setMenuBar] = useState(false);
   const { paintingId } = useParams();
   const [categories, setCategories] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
@@ -89,7 +88,7 @@ const handleEditSubmit = async (event) => {
     );
 
     await Swal.fire({
-      title: "Product updated successfully!",
+      title: "Painting updated successfully!",
       icon: "success",
       showCancelButton: false,
       confirmButtonText: "OK",
@@ -126,14 +125,14 @@ const handleEditSubmit = async (event) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         const response = await fetch(
-          `http://localhost:5000/painting//${paintingId}`,
+          `http://localhost:5000/painting/${paintingId}`,
           {
             method: "DELETE",
           }
         );
         if (response.ok) {
           const data = await response.json();
-          setPainting();
+          setPainting(data);
           window.location.href = "/profile";
         } else {
           console.error("Failed to remove item");
@@ -204,7 +203,7 @@ const handleEditSubmit = async (event) => {
               <select
                 id="category"
                 name="categoryId"
-                value={painting.categoryId}
+                value={painting.categoryId || ''}
                 onChange={handleInputChange}
                 className="userrr--inputs"
               >
@@ -242,10 +241,10 @@ const handleEditSubmit = async (event) => {
             />
           </div>
           <div className="modify-buttons">
-            <button className="add_painting" type="submit">
+            <button className="logout" type="submit">
               Update painting
             </button>
-            <button onClick={handleDelete} className="add_painting">
+            <button onClick={handleDelete} className="logout">
               Delete painting
             </button>
           </div>

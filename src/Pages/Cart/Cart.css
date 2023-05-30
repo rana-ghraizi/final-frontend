@@ -13,21 +13,62 @@
   font-size: 50px;
 }
 .cart-login-link {
-  background-color: #689dff;
+  /* background-color: #689dff;
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
   padding: 1rem 2rem;
   margin-bottom: 1rem;
   border-radius: 10px;
+  text-decoration: none; */
+  margin: 0 auto;
   text-decoration: none;
+  padding: 30px;
+  border: unset;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: white;
+  z-index: 1;
+  background-color: #689dff;
+  position: relative;
+  font-size: 30px;
+  transition: all 250ms;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.cart-login-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  background-color: #0059ff;
+  z-index: 2;
+  transition: all 250ms;
+}
+.cart-login-link span{
+  position: absolute;
+  z-index: 3;
+}
+.cart-login-link:hover {
+  color: white;
+}
+.cart-login-link:hover::before {
+  width: 100%;
+  z-index: -1;
+
 }
 
-.cart-login-link:hover {
+/* .cart-login-link:hover {
   background-color: transparent;
   color: black;
   border: #689dff solid 2px;
-}
+} */
 .cart-wrapper {
   background-image: url("../../Images/Desktop\ -\ 2.png");
   height: 100vh;

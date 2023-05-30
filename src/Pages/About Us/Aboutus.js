@@ -70,7 +70,3 @@ const Aboutus = () => {
 };
 
 export default Aboutus;
-
-// to do tomorrow:
-// 1. About us page
-// 4. login/register resposivity on tablets

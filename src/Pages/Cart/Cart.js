@@ -149,7 +149,7 @@ const Cart = () => {
           </div>
           <div className="cart-login">
             <Link to="/login" className="cart-login-link">
-              Login
+              <span>Login</span>
             </Link>
           </div>
         </div>

@@ -90,7 +90,6 @@ const Profile = () => {
         );
         const data = await response.json();
         setPaintings(data);
-        console.log(data); // Make sure data is not null or empty
       } catch (err) {
         console.log(err.message);
       }
@@ -139,7 +138,7 @@ const Profile = () => {
           </div>
           <div className="cart-login">
             <Link to="/login" className="cart-login-link">
-              Login
+              <span>Login</span>
             </Link>
           </div>
         </div>
@@ -220,7 +219,7 @@ const Profile = () => {
                 <div className="paintinginfo-first">
                   <h1 className="paintinginfo-h1">My Paintings</h1>
                   <Link className="add_painting" to={"/addPainting"}>
-                    Add painting
+                    <span>Add painting</span>
                   </Link>
                 </div>
                 <div className="paintings-content">

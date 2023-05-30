@@ -18,18 +18,42 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 45%;
 }
 .logout {
-  padding: 10px;
-  border: none;
-  background-color: #689dff;
-  color: white;
   text-decoration: none;
-  font-size: 30px;
+  padding: 10px;
+  border: unset;
   border-radius: 10px;
+  color: white;
+  z-index: 1;
+  background-color: #689dff;
+  position: relative;
+  font-size: 30px;
+  transition: all 250ms;
+  overflow: hidden;
+  margin-top: 20px;
   cursor: pointer;
 }
-.add_painting{
+.logout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  background-color: #0059ff;
+  z-index: -1;
+  transition: all 250ms;
+}
+.logout:hover {
+  color: white;
+}
+.logout:hover::before {
+  width: 100%;
+}
+/* .add_painting{
   padding: 10px;
   border: none;
   background-color: #689dff;
@@ -38,6 +62,49 @@
   font-size: 30px;
   border-radius: 10px;
   cursor: pointer;
+} */
+.add_painting {
+  margin: 0 auto;
+  text-decoration: none;
+  padding: 30px;
+  border: unset;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: white;
+  z-index: 1;
+  background-color: #689dff;
+  position: relative;
+  font-size: 30px;
+  transition: all 250ms;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.add_painting::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  background-color: #0059ff;
+  z-index: 2;
+  transition: all 250ms;
+}
+.add_painting span{
+  position: absolute;
+  z-index: 3;
+}
+.add_painting:hover {
+  color: white;
+}
+.add_painting:hover::before {
+  width: 100%;
+  z-index: -1;
+
 }
 .userinfo-h1 {
   font-family: Yellowtail;
@@ -102,7 +169,7 @@
   border-color: #6d71ff;
   outline: none;
 }
-.submit-button {
+/* .submit-button {
   border: none;
   padding: 10px;
   width: 25%;
@@ -111,6 +178,39 @@
   font-size: 25px;
   border-radius: 10px;
   cursor: pointer;
+} */
+.submit-button {
+  text-decoration: none;
+  padding: 10px;
+  border: unset;
+  border-radius: 10px;
+  color: white;
+  z-index: 1;
+  background-color: #689dff;
+  position: relative;
+  font-size: 30px;
+  transition: all 250ms;
+  overflow: hidden;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.submit-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  background-color: #0059ff;
+  z-index: -1;
+  transition: all 250ms;
+}
+.submit-button:hover {
+  color: white;
+}
+.submit-button:hover::before {
+  width: 100%;
 }
 .profileimg-div {
   width: 50%;

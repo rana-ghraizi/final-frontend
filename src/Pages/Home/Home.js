@@ -22,7 +22,6 @@ const Home = () => {
         const data = await response.json();
         const firstThreePaintings = data.slice(0, 3); // Get the first 3 objects
         setPaintings(firstThreePaintings);
-        console.log(firstThreePaintings);
       } catch (err) {
         console.log(err.message);
       }
@@ -83,9 +82,9 @@ const Home = () => {
               enthusiasts where everyone can come together to appreciate and
               support each other's work.
             </p>
-            <Link to={"/aboutus"} className="home2-button">
+            <a href="/aboutus" className="home2-button">
               Read more
-            </Link>
+            </a>
             <img src={pic2} alt="image2" className="home2-line" />
           </div>
         </div>
@@ -104,7 +103,7 @@ const Home = () => {
         <div className="home4-content">
           <NestedGridComponent paintings={paintings} />
           {paintings.map((item) => (
-            <div key={item.id}>
+            <div key={item._id}>
               <Link className="view-button" to={`/paintings/${item._id}`}>
                 <img
                   src={item.image.url}
@@ -115,8 +114,9 @@ const Home = () => {
             </div>
           ))}
         </div>
+
         <Link to={"/paintings"} className="home-viewmore">
-          View more
+          <span>View more</span>
         </Link>
       </div>
       <Footer />

@@ -24,7 +24,7 @@ const NestedGridComponent = ({ paintings }) => {
   return (
     <div className="home4-content2">
       {nestedPaintings.map((item) => (
-        <div key={item.id} className="image-container">
+        <div key={item._id} className="image-container">
           <Link className="view-button" to={`/paintings/${item._id}`}>
           <img src={item.image.url} alt={item.title} className="home4-pic2" />
           </Link>

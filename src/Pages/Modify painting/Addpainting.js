@@ -70,7 +70,8 @@ const Addpainting = () => {
       console.log("hhhh", formData);
 
       await Swal.fire({
-        title: "Product added successfully!",
+        title: "Painting request received",
+        text: "Your painting will be displayed once confirmed!",
         icon: "success",
         showCancelButton: false,
         confirmButtonText: "OK",
@@ -152,7 +153,7 @@ const Addpainting = () => {
               <select
                 id="category"
                 name="categoryId"
-                value={painting.categoryId}
+                value={painting.categoryId || ''}
                 onChange={handleInputChange}
                 className="user-inputs"
               >
@@ -190,7 +191,7 @@ const Addpainting = () => {
             />
           </div>
           <div className="formadd-painting">
-            <button className="add_painting" type="submit">
+            <button className="logout" type="submit">
               Add painting
             </button>
           </div>
