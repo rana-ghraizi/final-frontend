@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, MenuBar } from "../../components/navbar/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Paper,
   Table,
@@ -23,6 +23,8 @@ const Cart = () => {
   const [totalData, settotalData] = useState([]);
   const [hasItems, setHasItems] = useState(false);
   const [orderStatus, setOrderStatus] = useState(null);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -111,7 +113,7 @@ const Cart = () => {
             showConfirmButton: false,
             timer: 1500,
           }).then(() => {
-            window.location.href = "/cart";
+            navigate("/cart")
           });
         } else {
           // set order status to failure

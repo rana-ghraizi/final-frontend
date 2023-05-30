@@ -2,7 +2,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Addpainting = () => {
@@ -16,6 +16,8 @@ const Addpainting = () => {
     price: "",
     size: "",
   });
+
+  const navigate = useNavigate()
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -87,7 +89,7 @@ const Addpainting = () => {
       // Update the state of the products with the new list
       setPainting(response.data);
       console.log(painting);
-      window.location.href = "/profile";
+      navigate("/profile")
     } catch (error) {
       console.error(error);
     }

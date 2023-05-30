@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./Login.css";
 import login from "../../Images/image_8-removebg-preview.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const navigate = useNavigate()
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -25,7 +27,7 @@ const Login = () => {
       sessionStorage.setItem("Id", data.user);
       sessionStorage.setItem("role", data.role);
       // if (data.role === "User") {
-      window.location.href = "/";
+        navigate("/")
       // }
       console.log("Login successful");
     } catch (error) {
@@ -47,9 +49,9 @@ const Login = () => {
           </h1>
           <p className="login-content-p">
             Don't have an account, sign up{" "}
-            <a href="/register" className="login-a">
+            <Link to={"/register"} className="login-a">
               here!
-            </a>
+            </Link>
           </p>
           <form className="login-form" onSubmit={handleLogin}>
             <div className="username">

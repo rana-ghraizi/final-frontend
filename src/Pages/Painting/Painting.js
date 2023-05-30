@@ -7,7 +7,7 @@ import { Navbar, MenuBar } from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Painting = () => {
   const [painting, setPainting] = useState([]);
@@ -17,6 +17,7 @@ const Painting = () => {
 
   const userId = sessionStorage.getItem("Id");
   const role = sessionStorage.getItem("role");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPainting = async () => {
@@ -61,19 +62,6 @@ const Painting = () => {
         console.error(error);
       }
     }
-    // else if ( role === 'Artist') {
-    //   const result = await
-    //   Swal.fire({
-    //     title: "You should to be a user to add items to your cart",
-    //     showCancelButton: true,
-    //     confirmButtonText: "Log in",
-    //     customClass: {
-    //       popup: "custom-style",
-    //       title: "custom-style",
-    //       confirmButton: "custom-style",
-    //     },
-    //   });
-    // }
     else {
       const result = await Swal.fire({
         title: "You need to be logged in to add items to your cart",
@@ -86,7 +74,7 @@ const Painting = () => {
         },
       });
       if (result.isConfirmed) {
-        window.location.href = "/login";
+        navigate("/login")
       }
     }
   };

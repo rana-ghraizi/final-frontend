@@ -84,9 +84,9 @@ const Home = () => {
               enthusiasts where everyone can come together to appreciate and
               support each other's work.
             </p>
-            <a href="/aboutus" className="home2-button">
+            <Link to={"/aboutus"} className="home2-button">
               Read more
-            </a>
+            </Link>
             <img src={pic2} alt="image2" className="home2-line" />
           </div>
         </div>

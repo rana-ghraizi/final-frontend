@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import login from "../../Images/image_8-removebg-preview.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 
 const Login = () => {
@@ -76,9 +76,9 @@ const Login = () => {
           </h1>
           <p className="login-content-p">
             Do have an account, login{" "}
-            <a href="/login" className="login-a">
+            <Link to={"/login"} className="login-a">
               here!
-            </a>
+            </Link>
           </p>
           <form className="login-form" onSubmit={handleRegister}>
             {step === 1 && (

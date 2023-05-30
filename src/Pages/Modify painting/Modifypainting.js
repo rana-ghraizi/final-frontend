@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import "./Modifypainting.css";
@@ -11,6 +11,8 @@ const Modifypainting = () => {
   const [categories, setCategories] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
   const userId = sessionStorage.getItem("Id");
+  const navigate = useNavigate()
+
 
   const [painting, setPainting] = useState({
     userId: userId,
@@ -103,7 +105,7 @@ const Modifypainting = () => {
 
       // Update the state of the products with the new data
       setPainting(response.data);
-      window.location.href = "/profile";
+      navigate("/profile")
     } catch (error) {
       console.error(error);
     }
@@ -134,7 +136,8 @@ const Modifypainting = () => {
         if (response.ok) {
           const data = await response.json();
           setPainting(data);
-          window.location.href = "/profile";
+          navigate("/profile")
+
         } else {
           console.error("Failed to remove item");
         }

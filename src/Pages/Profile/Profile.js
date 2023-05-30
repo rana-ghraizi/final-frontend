@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, MenuBar } from "../../components/navbar/Navbar";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Paper,
   Table,
@@ -24,12 +24,14 @@ const Profile = () => {
   const [paintings, setPaintings] = useState([]);
 
   const id = sessionStorage.getItem("Id");
+  const role = sessionStorage.getItem("role")
   const userId = sessionStorage.getItem("Id");
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     console.log("Logout");
     sessionStorage.clear("token");
-    window.location.href = "/";
+    navigate("/");
   };
 
   // fetch user
@@ -159,6 +161,11 @@ const Profile = () => {
                   href="https://fonts.googleapis.com/css?family=Yellowtail"
                 />
               </h1>
+              {role === "admin" && (
+                <Link to={"/dashboard"} className="logout">
+                  Dashboard
+                </Link>
+              )}{" "}
               <button onClick={handleLogout} className="logout">
                 Logout
               </button>
