@@ -58,7 +58,7 @@
 @media (max-width: 600px) {
   .footer-container {
     height: 550px;
-    width: 92%;
+    width: 90%;
     grid-template-columns: 1fr;
     text-align: center;
   }
@@ -69,5 +69,10 @@
   .footer-logo {
     margin-bottom: 20px;
     padding: 10px;
+  }
+}
+@media (max-width: 1840px) {
+  .footer-container {
+    width: 98%;
   }
 }
