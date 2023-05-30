@@ -29,17 +29,20 @@ const Login = () => {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:5000/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username,
-          password,
-          address,
-          phonenumber,
-          role,
-        }),
-      });
+      const response = await fetch(
+        "https://artistic-u8a3.onrender.com/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username,
+            password,
+            address,
+            phonenumber,
+            role,
+          }),
+        }
+      );
 
       if (!response.ok) {
         const data = await response.json();

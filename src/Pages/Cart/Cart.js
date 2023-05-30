@@ -27,7 +27,9 @@ const Cart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/cart/${userId}`);
+        const response = await fetch(
+          `https://artistic-u8a3.onrender.com/cart/${userId}`
+        );
         const data = await response.json();
         setTableData(data.items);
         settotalData(data);
@@ -66,7 +68,7 @@ const Cart = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         const response = await fetch(
-          `http://localhost:5000/cart/${userId}/${paintingId}`,
+          `https://artistic-u8a3.onrender.com/cart/${userId}/${paintingId}`,
           {
             method: "DELETE",
           }
@@ -90,7 +92,7 @@ const Cart = () => {
 
   const handleOrder = () => {
     // send POST request to place order function
-    fetch("http://localhost:5000/order", {
+    fetch("https://artistic-u8a3.onrender.com/order", {
       method: "POST",
       body: JSON.stringify({
         userId: userId,

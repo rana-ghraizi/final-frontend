@@ -26,7 +26,7 @@ const Modifypainting = () => {
     const fetchPainting = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/painting/${paintingId}`
+          `https://artistic-u8a3.onrender.com/painting/${paintingId}`
         );
         const data = await response.json();
         setPainting(data);
@@ -41,7 +41,9 @@ const Modifypainting = () => {
   useEffect(() => {
     const fetchTitle = async () => {
       try {
-        const response = await fetch("http://localhost:5000/category");
+        const response = await fetch(
+          "https://artistic-u8a3.onrender.com/category"
+        );
         const data = await response.json();
         setCategories(data);
       } catch (err) {
@@ -61,52 +63,51 @@ const Modifypainting = () => {
     setSelectedImage(event.target.files[0]);
   };
 
-// update painting data
-const handleEditSubmit = async (event) => {
-  event.preventDefault();
+  // update painting data
+  const handleEditSubmit = async (event) => {
+    event.preventDefault();
 
-  try {
-    const formData = new FormData();
-    // for (const image of selectedImage) {
-    //   formData.append("image", image);
-    // }
-    formData.append("title", painting.title);
-    formData.append("description", painting.description);
-    formData.append("categoryId", painting.categoryId);
-    formData.append("price", painting.price);
-    formData.append("size", painting.size);
-    formData.append("image", selectedImage);
+    try {
+      const formData = new FormData();
+      // for (const image of selectedImage) {
+      //   formData.append("image", image);
+      // }
+      formData.append("title", painting.title);
+      formData.append("description", painting.description);
+      formData.append("categoryId", painting.categoryId);
+      formData.append("price", painting.price);
+      formData.append("size", painting.size);
+      formData.append("image", selectedImage);
 
-    const response = await axios.put(
-      `http://localhost:5000/painting/${paintingId}`,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
+      const response = await axios.put(
+        `https://artistic-u8a3.onrender.com/painting/${paintingId}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      await Swal.fire({
+        title: "Painting updated successfully!",
+        icon: "success",
+        showCancelButton: false,
+        confirmButtonText: "OK",
+        customClass: {
+          popup: "custom-style",
+          title: "custom-style",
+          confirmButton: "custom-style",
         },
-      }
-    );
+      });
 
-    await Swal.fire({
-      title: "Painting updated successfully!",
-      icon: "success",
-      showCancelButton: false,
-      confirmButtonText: "OK",
-      customClass: {
-        popup: "custom-style",
-        title: "custom-style",
-        confirmButton: "custom-style",
-      },
-    });
-
-    // Update the state of the products with the new data
-    setPainting(response.data);
-    window.location.href = "/profile";
-  } catch (error) {
-    console.error(error);
-  }
-};
-
+      // Update the state of the products with the new data
+      setPainting(response.data);
+      window.location.href = "/profile";
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   //   delete painting
   const handleDelete = async () => {
@@ -125,7 +126,7 @@ const handleEditSubmit = async (event) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         const response = await fetch(
-          `http://localhost:5000/painting/${paintingId}`,
+          `https://artistic-u8a3.onrender.com/painting/${paintingId}`,
           {
             method: "DELETE",
           }
@@ -176,7 +177,8 @@ const handleEditSubmit = async (event) => {
             />
           </div>
           <div className="username">
-            <label className="update-Address">Painting Description:</label> <br />
+            <label className="update-Address">Painting Description:</label>{" "}
+            <br />
             <textarea
               className="user-inputs"
               type="text"
@@ -203,7 +205,7 @@ const handleEditSubmit = async (event) => {
               <select
                 id="category"
                 name="categoryId"
-                value={painting.categoryId || ''}
+                value={painting.categoryId || ""}
                 onChange={handleInputChange}
                 className="userrr--inputs"
               >

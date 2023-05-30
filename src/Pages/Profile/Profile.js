@@ -36,7 +36,9 @@ const Profile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/user/${id}`);
+        const response = await fetch(
+          `https://artistic-u8a3.onrender.com/user/${id}`
+        );
         const data = await response.json();
         setUser(data);
         setPhoneNumber(data.phonenumber);
@@ -52,17 +54,20 @@ const Profile = () => {
   const updateUser = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/updateuser", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: id,
-          address: address,
-          phonenumber: phoneNumber,
-        }),
-      });
+      const response = await fetch(
+        "https://artistic-u8a3.onrender.com/updateuser",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: id,
+            address: address,
+            phonenumber: phoneNumber,
+          }),
+        }
+      );
       const data = await response.json();
       console.log("Updated Successfully");
 
@@ -86,7 +91,7 @@ const Profile = () => {
     const fetchPaintings = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/painting/user/${userId}`
+          `https://artistic-u8a3.onrender.com/painting/user/${userId}`
         );
         const data = await response.json();
         setPaintings(data);
@@ -103,7 +108,7 @@ const Profile = () => {
     const fetchOrders = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/order/user/${userId}`
+          `https://artistic-u8a3.onrender.com/order/user/${userId}`
         );
         const data = await response.json();
         setTableData(data);

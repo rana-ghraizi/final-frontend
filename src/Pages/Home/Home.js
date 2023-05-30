@@ -18,7 +18,9 @@ const Home = () => {
   useEffect(() => {
     const fetchPaintings = async () => {
       try {
-        const response = await fetch("http://localhost:5000/painting");
+        const response = await fetch(
+          "https://artistic-u8a3.onrender.com/painting"
+        );
         const data = await response.json();
         const firstThreePaintings = data.slice(0, 3); // Get the first 3 objects
         setPaintings(firstThreePaintings);

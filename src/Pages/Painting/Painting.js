@@ -17,12 +17,12 @@ const Painting = () => {
 
   const userId = sessionStorage.getItem("Id");
   const role = sessionStorage.getItem("role");
-  
+
   useEffect(() => {
     const fetchPainting = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/painting/${paintingId}`
+          `https://artistic-u8a3.onrender.com/painting/${paintingId}`
         );
         const data = await response.json();
         setPainting(data);
@@ -40,7 +40,7 @@ const Painting = () => {
     if (userId) {
       try {
         const response = await axios.post(
-          `http://localhost:5000/cart/${userId}`,
+          `https://artistic-u8a3.onrender.com/cart/${userId}`,
           {
             paintingId: paintingId,
           }

@@ -30,7 +30,9 @@ const Addpainting = () => {
   useEffect(() => {
     const fetchTitle = async () => {
       try {
-        const response = await fetch("http://localhost:5000/category");
+        const response = await fetch(
+          "https://artistic-u8a3.onrender.com/category"
+        );
         const data = await response.json();
         setCategories(data);
       } catch (err) {
@@ -59,7 +61,7 @@ const Addpainting = () => {
       formData.append("image", selectedImage);
 
       const response = await axios.post(
-        `http://localhost:5000/painting/${userId}`,
+        `https://artistic-u8a3.onrender.com/painting/${userId}`,
         formData,
         {
           headers: {
@@ -126,7 +128,8 @@ const Addpainting = () => {
             />
           </div>
           <div className="username">
-            <label className="update-Address">Painting Description:</label> <br />
+            <label className="update-Address">Painting Description:</label>{" "}
+            <br />
             <textarea
               className="user-inputs"
               type="text"
@@ -153,7 +156,7 @@ const Addpainting = () => {
               <select
                 id="category"
                 name="categoryId"
-                value={painting.categoryId || ''}
+                value={painting.categoryId || ""}
                 onChange={handleInputChange}
                 className="user-inputs"
               >

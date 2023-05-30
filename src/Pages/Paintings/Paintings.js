@@ -14,7 +14,9 @@ const Paintings = () => {
   useEffect(() => {
     const fetchPaintings = async () => {
       try {
-        const response = await fetch("http://localhost:5000/painting");
+        const response = await fetch(
+          "https://artistic-u8a3.onrender.com/painting"
+        );
         const data = await response.json();
         setPaintings(data);
       } catch (err) {
@@ -29,7 +31,9 @@ const Paintings = () => {
   useEffect(() => {
     const fetchTitle = async () => {
       try {
-        const response = await fetch("http://localhost:5000/category");
+        const response = await fetch(
+          "https://artistic-u8a3.onrender.com/category"
+        );
         const data = await response.json();
         setTitle(data);
       } catch (err) {
@@ -59,7 +63,7 @@ const Paintings = () => {
     const fetchProductsByCategory = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/painting/category/${categoryId}`
+          `https://artistic-u8a3.onrender.com/painting/category/${categoryId}`
         );
         const data = await response.json();
         setPaintings(data);
@@ -73,7 +77,9 @@ const Paintings = () => {
     } else {
       const fetchPaintings = async () => {
         try {
-          const response = await fetch("http://localhost:5000/painting");
+          const response = await fetch(
+            "https://artistic-u8a3.onrender.com/painting"
+          );
           const data = await response.json();
           setPaintings(data);
         } catch (err) {
@@ -111,12 +117,12 @@ const Paintings = () => {
         {paintings.map((item) => (
           <div key={item._id} className="painting-container">
             <Link className="view-button" to={`/paintings/${item._id}`}>
-            <img src={item.image.url} alt={item.title} className="painting" />
+              <img src={item.image.url} alt={item.title} className="painting" />
             </Link>
           </div>
         ))}
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

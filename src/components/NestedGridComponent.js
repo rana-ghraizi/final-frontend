@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 const NestedGridComponent = ({ paintings }) => {
   const [nestedPaintings, setNestedpaintings] = useState([]);
 
-    // fetch 4 paintings to the inner grid
+  // fetch 4 paintings to the inner grid
   useEffect(() => {
     const fetchPaintings = async () => {
       try {
-        const response = await fetch("http://localhost:5000/painting");
+        const response = await fetch(
+          "https://artistic-u8a3.onrender.com/painting"
+        );
         const data = await response.json();
         const nextFourPaintings = data.slice(3, 7); // Get the next 4 objects
         setNestedpaintings(nextFourPaintings);
@@ -26,7 +28,7 @@ const NestedGridComponent = ({ paintings }) => {
       {nestedPaintings.map((item) => (
         <div key={item._id} className="image-container">
           <Link className="view-button" to={`/paintings/${item._id}`}>
-          <img src={item.image.url} alt={item.title} className="home4-pic2" />
+            <img src={item.image.url} alt={item.title} className="home4-pic2" />
           </Link>
         </div>
       ))}

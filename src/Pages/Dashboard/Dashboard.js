@@ -32,7 +32,9 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchPaintings = async () => {
       try {
-        const response = await fetch("http://localhost:5000/painting/status");
+        const response = await fetch(
+          "https://artistic-u8a3.onrender.com/painting/status"
+        );
         const data = await response.json();
         setPaintings(data);
       } catch (err) {
@@ -46,13 +48,16 @@ const Dashboard = () => {
   // update status
   const updatePaintingStatus = async (id, status) => {
     try {
-      const response = await fetch(`http://localhost:5000/painting/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ status }),
-      });
+      const response = await fetch(
+        `https://artistic-u8a3.onrender.com/painting/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ status }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to update painting status");
@@ -91,7 +96,7 @@ const Dashboard = () => {
 
   return (
     <div>
-       <Navbar setMenuBar={setMenuBar} menubar={menubar} />
+      <Navbar setMenuBar={setMenuBar} menubar={menubar} />
       <MenuBar menubar={menubar} />
       <div className="cart-table">
         <Paper
@@ -130,7 +135,9 @@ const Dashboard = () => {
                     <TableCell>{item.status}</TableCell>
                     <TableCell>
                       <Button
-                        onClick={() => handleStatusUpdate(item._id, item.status, "confirmed")}
+                        onClick={() =>
+                          handleStatusUpdate(item._id, item.status, "confirmed")
+                        }
                         className="cart-button-icon"
                         variant="contained"
                         startIcon={<FontAwesomeIcon icon={faCheckCircle} />}
@@ -139,7 +146,9 @@ const Dashboard = () => {
                         Confirm
                       </Button>
                       <Button
-                        onClick={() => handleStatusUpdate(item._id, item.status, "rejected")}
+                        onClick={() =>
+                          handleStatusUpdate(item._id, item.status, "rejected")
+                        }
                         className="cart-button-icon"
                         variant="contained"
                         startIcon={<FontAwesomeIcon icon={faTimesCircle} />}
