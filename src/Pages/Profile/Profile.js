@@ -162,7 +162,7 @@ const Profile = () => {
                 />
               </h1>
               {role === "admin" && (
-                <Link to={"/dashboard"} className="logout">
+                <Link to="/dashboard" className="logout">
                   Dashboard
                 </Link>
               )}{" "}
