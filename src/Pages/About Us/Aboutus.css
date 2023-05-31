@@ -140,6 +140,12 @@
   .about-img-2 {
     margin-right: 0%;
   }
+  .mission-p {
+    font-size: 20px;
+  }
+  .about-parag {
+    font-size: 25px;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 1200px){
   .collection-1, .collection-2{
