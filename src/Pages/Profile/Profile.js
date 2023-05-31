@@ -24,7 +24,7 @@ const Profile = () => {
   const [paintings, setPaintings] = useState([]);
 
   const id = sessionStorage.getItem("Id");
-  const role = sessionStorage.getItem("role")
+  const role = sessionStorage.getItem("role");
   const userId = sessionStorage.getItem("Id");
   const navigate = useNavigate();
 
@@ -162,10 +162,10 @@ const Profile = () => {
                 />
               </h1>
               {role === "admin" && (
-                <Link to="/dashboard" className="logout">
-                  Dashboard
+                <Link className="add_painting" to={"/dashboard"}>
+                  <span>Dashboard</span>
                 </Link>
-              )}{" "}
+              )}
               <button onClick={handleLogout} className="logout">
                 Logout
               </button>
