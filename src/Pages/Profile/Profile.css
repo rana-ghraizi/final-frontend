@@ -53,16 +53,6 @@
 .logout:hover::before {
   width: 100%;
 }
-/* .add_painting{
-  padding: 10px;
-  border: none;
-  background-color: #689dff;
-  color: white;
-  text-decoration: none;
-  font-size: 30px;
-  border-radius: 10px;
-  cursor: pointer;
-} */
 .add_painting {
   margin: 0 auto;
   text-decoration: none;
@@ -169,16 +159,6 @@
   border-color: #6d71ff;
   outline: none;
 }
-/* .submit-button {
-  border: none;
-  padding: 10px;
-  width: 25%;
-  background-color: #689dff;
-  color: white;
-  font-size: 25px;
-  border-radius: 10px;
-  cursor: pointer;
-} */
 .submit-button {
   text-decoration: none;
   padding: 10px;
