@@ -293,9 +293,15 @@ const Profile = () => {
                           {Array.isArray(tableData) &&
                             tableData.map((item) => (
                               <TableRow key={item._id}>
-                                <TableCell>{item.user.username}</TableCell>
-                                <TableCell>{item.user.phonenumber}</TableCell>
-                                <TableCell>{item.user.address}</TableCell>
+                                {item.user && (
+                                  <>
+                                    <TableCell>{item.user.username}</TableCell>
+                                    <TableCell>
+                                      {item.user.phonenumber}
+                                    </TableCell>
+                                    <TableCell>{item.user.address}</TableCell>
+                                  </>
+                                )}
                                 {item.orderedPaintings.map((painting) => (
                                   <TableCell
                                     key={painting._id}
