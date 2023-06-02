@@ -162,9 +162,12 @@ const Profile = () => {
                 />
               </h1>
               {role === "admin" && (
-                <Link className="add_painting" to={"/dashboard"}>
-                  <span>Dashboard</span>
-                </Link>
+                <button
+                  onClick={() => navigate("/dashboard")}
+                  className="logout"
+                >
+                  Dashboard
+                </button>
               )}
               <button onClick={handleLogout} className="logout">
                 Logout
