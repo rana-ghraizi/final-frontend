@@ -88,7 +88,7 @@ const Login = () => {
                   <input
                     className="username-input"
                     type="text"
-                    placeholder="username"
+                    placeholder="Enter your username"
                     id="username"
                     name="username"
                     value={username}
@@ -100,7 +100,7 @@ const Login = () => {
                   <input
                     className="username-input"
                     type="password"
-                    placeholder="password"
+                    placeholder="Enter your password"
                     id="password"
                     name="password"
                     value={password}
@@ -123,7 +123,7 @@ const Login = () => {
                   <input
                     className="username-input"
                     type="text"
-                    placeholder="address"
+                    placeholder="Enter your address"
                     id="address"
                     name="address"
                     value={address}
@@ -135,7 +135,7 @@ const Login = () => {
                   <input
                     className="username-input"
                     type="text"
-                    placeholder="phone number"
+                    placeholder="Enter your phone number"
                     id="phone-number"
                     name="phonenumber"
                     value={phonenumber}

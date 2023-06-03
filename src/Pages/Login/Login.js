@@ -59,7 +59,7 @@ const Login = () => {
               <input
                 className="username-input"
                 type="text"
-                placeholder="username"
+                placeholder="Enter your username"
                 id="username"
                 name="username"
                 value={username}
@@ -71,7 +71,7 @@ const Login = () => {
               <input
                 className="username-input"
                 type="password"
-                placeholder="password"
+                placeholder="Enter your password"
                 id="password"
                 name="password"
                 value={password}
