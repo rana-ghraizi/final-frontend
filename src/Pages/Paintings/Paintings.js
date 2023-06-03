@@ -4,12 +4,15 @@ import "./Paintings.css";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import Footer from "../../components/footer/Footer";
+import { animateScroll } from 'react-scroll';
+
+
 const Paintings = () => {
   const [paintings, setPaintings] = useState([]);
   const [title, setTitle] = useState([]);
   const [categoryId, setCategoryId] = useState(null);
   const [menubar, setMenuBar] = useState(false);
-
+  
   // fetch paintings
   useEffect(() => {
     const fetchPaintings = async () => {
@@ -90,6 +93,10 @@ const Paintings = () => {
     }
   }, [categoryId]);
 
+  const handleLinkClick = () => {
+    animateScroll.scrollToTop();
+  };
+
   return (
     <div>
       <Navbar setMenuBar={setMenuBar} menubar={menubar} />
@@ -116,7 +123,7 @@ const Paintings = () => {
       <div className="paintings-content">
         {paintings.map((item) => (
           <div key={item._id} className="painting-container">
-            <Link className="view-button" to={`/paintings/${item._id}`}>
+            <Link className="view-button" to={`/paintings/${item._id}`} onClick={handleLinkClick}>
               <img src={item.image.url} alt={item.title} className="painting" />
             </Link>
           </div>

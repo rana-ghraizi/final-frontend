@@ -10,6 +10,7 @@ import { Navbar, MenuBar } from "../../components/navbar/Navbar";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { animateScroll } from 'react-scroll';
 
 const Home = () => {
   const [paintings, setPaintings] = useState([]);
@@ -48,6 +49,10 @@ const Home = () => {
     autoplay: true,
     autoplaySpeed: 3000, // Adjust the speed (in milliseconds) as desired
   };
+  const handleLinkClick = () => {
+    animateScroll.scrollToTop();
+  };
+  
 
   return (
     <>
@@ -84,7 +89,7 @@ const Home = () => {
               enthusiasts where everyone can come together to appreciate and
               support each other's work.
             </p>
-            <Link to={"/aboutus"} className="home2-button">
+            <Link to={"/aboutus"} className="home2-button" onClick={handleLinkClick}>
               Read more
             </Link>
             <img src={pic2} alt="image2" className="home2-line" />
@@ -106,7 +111,7 @@ const Home = () => {
           <NestedGridComponent paintings={paintings} />
           {paintings.map((item) => (
             <div key={item._id}>
-              <Link className="view-button" to={`/paintings/${item._id}`}>
+              <Link className="view-button" to={`/paintings/${item._id}`} onClick={handleLinkClick}>
                 <img
                   src={item.image.url}
                   alt={item.title}
@@ -117,7 +122,7 @@ const Home = () => {
           ))}
         </div>
 
-        <Link to={"/paintings"} className="home-viewmore">
+        <Link to={"/paintings"} className="home-viewmore" onClick={handleLinkClick}>
           <span>View more</span>
         </Link>
       </div>

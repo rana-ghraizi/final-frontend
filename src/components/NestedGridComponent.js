@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 
 const NestedGridComponent = ({ paintings }) => {
   const [nestedPaintings, setNestedpaintings] = useState([]);
@@ -22,12 +23,15 @@ const NestedGridComponent = ({ paintings }) => {
 
     fetchPaintings();
   }, []);
+  const handleLinkClick = () => {
+    animateScroll.scrollToTop();
+  };
 
   return (
     <div className="home4-content2">
       {nestedPaintings.map((item) => (
         <div key={item._id} className="image-container">
-          <Link className="view-button" to={`/paintings/${item._id}`}>
+          <Link className="view-button" to={`/paintings/${item._id}`} onClick={handleLinkClick}>
             <img src={item.image.url} alt={item.title} className="home4-pic2" />
           </Link>
         </div>
