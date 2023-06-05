@@ -152,7 +152,7 @@ const Login = () => {
                     onChange={(e) => setRole(e.target.value)}
                   >
                     <option value="">Select Role</option>
-                    <option value="user">User</option>
+                    <option value="user">Customer</option>
                     <option value="artist">Artist</option>
                   </select>
                 </div>
