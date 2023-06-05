@@ -48,7 +48,7 @@ const Painting = () => {
         );
         setCartStatus("sucssful", response.data);
         Swal.fire({
-          title: "Product added to cart!",
+          title: "Painting added to cart!",
           icon: "success",
           showCancelButton: false,
           confirmButtonText: "OK",
@@ -64,7 +64,7 @@ const Painting = () => {
     }
     else {
       const result = await Swal.fire({
-        title: "You need to be logged in to add items to your cart",
+        title: "You need to be logged in to add paintings to your cart",
         showCancelButton: true,
         confirmButtonText: "Log in",
         customClass: {
